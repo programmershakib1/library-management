@@ -1,0 +1,102 @@
+[
+  {
+    "image": "https://i.ibb.co.com/5TNnx3G/Life-of-Pi.jpg",
+    "title": "Moby Dick by Herman Melville",
+    "description": "Follow the harrowing journey of Captain Ahab as he hunts the elusive white whale, Moby Dick, in this epic tale of obsession.",
+    "points": [
+      "Philosophical exploration of obsession",
+      "A monumental work of American literature",
+      "Rich symbolism and deep themes"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/Ypszr8y/81j-Tq-LYPl-IL-AC-UF1000-1000-QL80.jpg",
+    "title": "Pride and Prejudice by Jane Austen",
+    "description": "Step into the world of 19th-century England, where love, wit, and societal expectations converge in this timeless classic.",
+    "points": [
+      "Exploration of societal norms",
+      "A tale of love and misunderstandings",
+      "One of literature's most cherished works"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/SxhKZtR/008b7fc4a0649597d797bb05de224f37.jpg",
+    "title": "The Lord of the Rings by J.R.R. Tolkien",
+    "description": "Venture into Middle-earth and join Frodo and his companions in their quest to destroy the One Ring and save the world.",
+    "points": [
+      "Epic fantasy with rich world-building",
+      "A timeless story of good vs. evil",
+      "Iconic characters and themes of friendship"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/vZHWXqH/desktop-wallpaper-dune-book-fantasy-movie.jpg",
+    "title": "Dune by Frank Herbert",
+    "description": "Immerse yourself in a sprawling epic of politics, religion, and ecology on the desert planet of Arrakis.",
+    "points": [
+      "Groundbreaking science fiction",
+      "Rich world-building and complex themes",
+      "A saga that redefined the genre"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/mS8zJnt/the-hobbit-1984-illustrated-bca-first-impression-i01-2560x1440.jpg",
+    "title": "The Hobbit by J.R.R. Tolkien",
+    "description": "Join Bilbo Baggins on his unexpected journey through Middle-earth in this classic tale of adventure and friendship.",
+    "points": [
+      "A beloved fantasy adventure",
+      "Themes of courage, friendship, and self-discovery",
+      "A prelude to 'The Lord of the Rings'"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/wLyncB2/getimage.jpg",
+    "title": "Life of Pi by Yann Martel",
+    "description": "Follow Pi Patel's extraordinary survival story after being stranded on a lifeboat in the Pacific Ocean with a Bengal tiger.",
+    "points": [
+      "A profound exploration of faith and survival",
+      "Rich in symbolism and metaphors",
+      "A captivating, life-affirming narrative"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/PhXvghK/The-Shining-1977-front-cover-first-edition.jpg",
+    "title": "The Shining by Stephen King",
+    "description": "Enter the haunted Overlook Hotel with Jack Torrance and his family in this chilling psychological horror masterpiece.",
+    "points": [
+      "Masterful suspense and psychological terror",
+      "Explores themes of isolation and madness",
+      "One of Stephen King's most iconic works"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/z4kHMKf/Kite-Runner-1440x1440-86f413cc6c.jpg",
+    "title": "The Kite Runner by Khaled Hosseini",
+    "description": "Experience a deeply moving story of friendship, betrayal, and redemption set against the backdrop of Afghanistan's tumultuous history.",
+    "points": [
+      "Heartbreaking and redemptive",
+      "Explores themes of guilt, friendship, and sacrifice",
+      "A contemporary classic of modern literature"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/TWBML88/Book-Review-To-Kill-a-Mockingbird-by-Harper-Lee-e1650602093350.webp",
+    "title": "To Kill a Mockingbird by Harper Lee",
+    "description": "Experience a powerful tale of justice, morality, and the human spirit in the American South.",
+    "points": [
+      "Timeless exploration of racial issues",
+      "Heartfelt and impactful storytelling",
+      "A Pulitzer Prize-winning masterpiece"
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/qg7TtRF/1683682415793.jpg",
+    "title": "The Alchemist by Paulo Coelho",
+    "description": "Embark on a mystical journey with Santiago, a shepherd, as he seeks his personal legend and discovers the true meaning of life.",
+    "points": [
+      "A fable about following your dreams",
+      "Explores themes of destiny and self-discovery",
+      "A modern classic with a timeless message"
+    ]
+  }
+]

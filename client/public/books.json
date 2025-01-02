@@ -1,0 +1,142 @@
+[
+  {
+    "image": "https://i.ibb.co.com/RTCzhKq/712-P0p5c-XIL-AC-UF1000-1000-QL80.jpg",
+    "name": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "publishingDate": "1813",
+    "read": "https://en.wikipedia.org/wiki/Pride_and_Prejudice"
+  },
+  {
+    "image": "https://i.ibb.co.com/5TNnx3G/9781681778488.jpg",
+    "name": "Moby Dick",
+    "author": "Herman Melville",
+    "publishingDate": "1851",
+    "read": "https://en.wikipedia.org/wiki/Moby-Dick"
+  },
+  {
+    "image": "https://i.ibb.co.com/G3R4KPz/33.jpg",
+    "name": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "publishingDate": "1954",
+    "read": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings"
+  },
+  {
+    "image": "https://i.ibb.co.com/WkBMSVT/447b6603-a2b9-4c81-86c5-dc922cc28737-1217x2040.webp",
+    "name": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "publishingDate": "1960",
+    "read": "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird"
+  },
+  {
+    "image": "https://i.ibb.co.com/6ZxPPwT/9780340960196.jpg",
+    "name": "Dune",
+    "author": "Frank Herbert",
+    "publishingDate": "1965",
+    "read": "https://en.wikipedia.org/wiki/Dune_(novel)"
+  },
+  {
+    "image": "https://i.ibb.co.com/z4kHMKf/Kite-Runner-1440x1440-86f413cc6c.jpg",
+    "name": "The Kite Runner",
+    "author": "Khaled Hosseini",
+    "publishingDate": "2003",
+    "read": "https://en.wikipedia.org/wiki/The_Kite_Runner"
+  },
+  {
+    "image": "https://i.ibb.co.com/JzfSY9Z/y648.jpg",
+    "name": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "publishingDate": "1937",
+    "read": "https://en.wikipedia.org/wiki/The_Hobbit"
+  },
+  {
+    "image": "https://i.ibb.co.com/3rM2ZYR/9276509.jpg",
+    "name": "The Alchemist",
+    "author": "Paulo Coelho",
+    "publishingDate": "1988",
+    "read": "https://en.wikipedia.org/wiki/The_Alchemist_(novel)"
+  },
+  {
+    "image": "https://i.ibb.co.com/wLyncB2/getimage.jpg",
+    "name": "Life of Pi",
+    "author": "Yann Martel",
+    "publishingDate": "2001",
+    "read": "https://en.wikipedia.org/wiki/Life_of_Pi"
+  },
+  {
+    "image": "https://i.ibb.co.com/PhXvghK/The-Shining-1977-front-cover-first-edition.jpg",
+    "name": "The Shining",
+    "author": "Stephen King",
+    "publishingDate": "1977",
+    "read": "https://en.wikipedia.org/wiki/The_Shining_(novel)"
+  },
+  {
+    "image": "https://i.ibb.co.com/SXNDJhK/images.jpg",
+    "name": "1984",
+    "author": "George Orwell",
+    "publishingDate": "1949",
+    "read": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four"
+  },
+  {
+    "image": "https://i.ibb.co.com/fr2DygC/The-Great-Gatsby-Cover-1925-Retouched.jpg",
+    "name": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "publishingDate": "1925",
+    "read": "https://en.wikipedia.org/wiki/The_Great_Gatsby"
+  },
+  {
+    "image": "https://i.ibb.co.com/Tt5TYkg/9781849162883.jpg",
+    "name": "The Girl with the Dragon Tattoo",
+    "author": "Stieg Larsson",
+    "publishingDate": "2005",
+    "read": "https://en.wikipedia.org/wiki/Stieg_Larsson"
+  },
+  {
+    "image": "https://i.ibb.co.com/8BBS0qf/images.png",
+    "name": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "publishingDate": "2011",
+    "read": "https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind"
+  },
+  {
+    "image": "https://i.ibb.co.com/G79jsBb/5107.jpg",
+    "name": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "publishingDate": "1951",
+    "read": "https://en.wikipedia.org/wiki/The_Catcher_in_the_Rye"
+  },
+  {
+    "image": "https://i.ibb.co.com/LrSQP4M/Brave-New-World-First-Edition.jpg",
+    "name": "Brave New World",
+    "author": "Aldous Huxley",
+    "publishingDate": "1932",
+    "read": "https://en.wikipedia.org/wiki/Brave_New_World"
+  },
+  {
+    "image": "https://i.ibb.co.com/yWR6Kv8/images-1.jpg",
+    "name": "Frankenstein",
+    "author": "Mary Shelley",
+    "publishingDate": "1818",
+    "read": "https://en.wikipedia.org/wiki/Frankenstein"
+  },
+  {
+    "image": "https://i.ibb.co.com/7vQ0bt1/9781408855652.jpg",
+    "name": "Harry Potter and the Sorcerer's Stone",
+    "author": "J.K. Rowling",
+    "publishingDate": "1997",
+    "read": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone"
+  },
+  {
+    "image": "https://i.ibb.co.com/B4M0Dxm/The-road.jpg",
+    "name": "The Road",
+    "author": "Cormac McCarthy",
+    "publishingDate": "2006",
+    "read": "https://en.wikipedia.org/wiki/The_Road"
+  },
+  {
+    "image": "https://i.ibb.co.com/X5GYhbS/da1cd57a5d78949896e7a3caa103ed3d.jpg",
+    "name": "Animal Farm",
+    "author": "George Orwell",
+    "publishingDate": "1945",
+    "read": "https://en.wikipedia.org/wiki/Animal_Farm"
+  }
+]

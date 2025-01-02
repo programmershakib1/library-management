@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "category": "Novel"
+  },
+  {
+    "id": 2,
+    "category": "Thriller"
+  },
+  {
+    "id": 3,
+    "category": "History"
+  },
+  {
+    "id": 4,
+    "category": "Drama"
+  },
+  {
+    "id": 4,
+    "category": "Sci-Fi"
+  }
+]
