@@ -130,13 +130,13 @@ The Library Management System (LMS) is a cutting-edge platform designed to strea
 
 ## Running the Project Locally
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Install the dependencies for both client-side and server-side:
+To get this project up and running on your local machine, follow these steps:
 
-   ```bash
-   npm install
-   ```
+### 1. Clone the Repository
+
+## 2. Install Dependencies
+
+## 3. Set Up Environment Variables
 
 ---
 
