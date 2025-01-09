@@ -25,7 +25,7 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="md:mt-10 mx-5 md:mx-0">
+    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
         <title>LMS - Forget Password</title>
       </Helmet>
@@ -43,13 +43,15 @@ const ForgetPassword = () => {
               type="email"
               placeholder="Email"
               defaultValue={`${emailValue ? emailValue : ""}`}
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
-          <button className="w-full bg-primary mt-3 py-2 rounded-full font-bold">
-            Reset Password
-          </button>
+          <div className="flex justify-center">
+            <button className="w-1/2 bg-primary dark:bg-c mt-3 py-2 rounded-full font-bold">
+              Reset Password
+            </button>
+          </div>
         </form>
         <p className="mt-2 text-sm font-semibold text-center">
           Back to

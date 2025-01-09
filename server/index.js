@@ -13,6 +13,9 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175",
+      "http://localhost:5176",
       "https://assignment-11-batch-10.netlify.app",
     ],
     credentials: true,

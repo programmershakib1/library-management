@@ -4,15 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        // primary: "rgb(26,185,167)",
         primary: "rgb(0,215,192)",
         p: "rgb(127,127,127)",
+        c: "rgb(33,36,42)",
       },
       fontFamily: {
         row: '"Rowdies", sans-serif',
       },
     },
   },
+  darkMode: "class",
   // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
 };

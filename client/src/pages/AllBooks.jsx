@@ -36,16 +36,16 @@ const AllBooks = () => {
         <title>LMS - All Books</title>
       </Helmet>
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className="md:mt-10">
+        <div className="md:mt-9 dark:mt-10 md:dark:mt-24">
           <div className="flex justify-center items-center gap-5 mt-5">
             <button
               onClick={() => handleViewToggle("card")}
               className={`text-3xl ${
-                viewMode === "card" ? "text-black" : "text-gray-500"
+                viewMode === "card" ? "text-black dark:text-white" : "text-gray-500"
               }`}
             >
               <i className="fa-solid fa-table-cells"></i>
@@ -53,16 +53,16 @@ const AllBooks = () => {
             <button
               onClick={() => handleViewToggle("table")}
               className={`text-3xl ${
-                viewMode === "table" ? "text-black" : "text-gray-500"
+                viewMode === "table" ? "text-black dark:text-white" : "text-gray-500"
               }`}
             >
               <i className="fa-solid fa-table-list"></i>
             </button>
           </div>
           <div className="flex flex-col md:flex-row gap-5 items-center justify-center m-5">
-            <div className="w-full lg:w-1/5 border border-black rounded-md font-bold py-2 px-2">
+            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
               <select
-                className="w-full"
+                className="w-full dark:bg-c"
                 value={viewMode}
                 onChange={(e) => handleViewToggle(e.target.value)}
               >
@@ -72,13 +72,13 @@ const AllBooks = () => {
             </div>
             <button
               onClick={handleFilter}
-              className="w-full lg:w-1/5 text-left border border-black rounded-md py-2 px-4 font-bold"
+              className="w-full lg:w-1/5 text-left dark:bg-c border border-black rounded-md py-2 px-4 font-bold"
             >
               {showAvailable ? "Show All Books" : "Show Available Books"}
             </button>
           </div>
           {viewMode === "card" ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
               {books.map((book, idx) => (
                 <BookCard key={idx} book={book}></BookCard>
               ))}

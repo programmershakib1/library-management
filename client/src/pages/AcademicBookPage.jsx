@@ -26,17 +26,17 @@ const AcademicBookPage = () => {
         <title>LMS - Academic Books</title>
       </Helmet>
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className="md:mt-10">
+        <div className="md:mt-9 dark:mt-10 md:dark:mt-24">
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5">
             {books?.map((book, idx) => (
               <motion.div
                 {...animationValue}
                 key={idx}
-                className="rounded-xl p-5 hover:shadow-2xl shadow-md"
+                className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
               >
                 <img
                   className="w-full h-40 rounded-xl"

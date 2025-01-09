@@ -114,12 +114,12 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="md:mt-10 mx-5 md:mx-0">
+    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
         <title>LMS - Book Details</title>
       </Helmet>
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
@@ -131,17 +131,19 @@ const BookDetails = () => {
             <div>
               <div className="flex items-center gap-5 mt-5">
                 <h2 className="text-xl font-bold">{name}</h2>
-                <p
-                  className={`font-semibold badge ${
-                    category === "Novel" ? "text-primary" : ""
-                  } ${category === "Thriller" ? "text-warning" : ""} ${
-                    category === "History" ? "text-success" : ""
-                  } ${category === "Drama" ? "text-secondary" : ""} ${
-                    category === "Sci-Fi" ? "text-error" : ""
-                  }`}
-                >
-                  {category}
-                </p>
+                {category && (
+                  <p
+                    className={`font-semibold badge ${
+                      category === "Novel" ? "text-primary" : ""
+                    } ${category === "Thriller" ? "text-warning" : ""} ${
+                      category === "History" ? "text-success" : ""
+                    } ${category === "Drama" ? "text-secondary" : ""} ${
+                      category === "Sci-Fi" ? "text-error" : ""
+                    }`}
+                  >
+                    {category}
+                  </p>
+                )}
               </div>
               <div className="mt-5">
                 <img src={border} alt="" />
@@ -180,7 +182,7 @@ const BookDetails = () => {
               {academicBook ? (
                 <div className="lg:w-1/2 mt-6 lg:mt-20 flex flex-col gap-5">
                   <a href={book?.source} target="_blank">
-                    <button className="w-full bg-primary py-2 px-6 font-bold">
+                    <button className="w-full bg-primary dark:bg-c py-2 px-6 font-bold">
                       Reade
                     </button>
                   </a>
@@ -188,7 +190,7 @@ const BookDetails = () => {
                     to={`/updateBook/${book?._id}`}
                     state={{ academicBook: true }}
                   >
-                    <button className="w-full bg-primary py-2 px-6 font-bold">
+                    <button className="w-full bg-primary dark:bg-c py-2 px-6 font-bold">
                       Update
                     </button>
                   </Link>
@@ -198,7 +200,7 @@ const BookDetails = () => {
                   onClick={() =>
                     document.getElementById("my_modal_5").showModal()
                   }
-                  className="bg-primary py-2 px-6 font-bold mt-5"
+                  className="bg-primary dark:bg-c py-2 px-6 font-bold mt-5"
                 >
                   Borrow
                 </button>
@@ -219,7 +221,7 @@ const BookDetails = () => {
       )}
       {/* modal */}
       <dialog id="my_modal_5" className="modal sm:modal-middle">
-        <div className="modal-box">
+        <div className="modal-box dark:bg-black">
           <form id="applyForm" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col mt-14">
               <label>
@@ -231,7 +233,7 @@ const BookDetails = () => {
                 placeholder="Name"
                 required
                 defaultValue={user.displayName}
-                className="mt-1 border border-black p-2 rounded-full"
+                className="mt-1 border border-black dark:bg-c p-2 rounded-full"
                 {...register("name", { required: "Name is required" })}
               />
               {errors.name && <p>{errors.name.message}</p>}
@@ -246,7 +248,7 @@ const BookDetails = () => {
                 placeholder="Email"
                 required
                 defaultValue={user.email}
-                className="mt-1 mb-2 border border-black p-2 rounded-full"
+                className="mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                 {...register("email", { required: "Email is required" })}
               />
               {errors.email && <p>{errors.email.message}</p>}
@@ -256,7 +258,7 @@ const BookDetails = () => {
                 <span className="font-semibold">Return Date</span>
               </label>
               <DatePicker
-                className="w-full mt-1 mb-2 border border-black p-2 rounded-full"
+                className="w-full mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                 selected={returnDate}
                 onChange={(date) => setReturnDate(date)}
               />

@@ -10,8 +10,8 @@ const BookCard = ({ book }) => {
 
   return (
     <Zoom>
-      <div className="shadow-xl rounded-xl p-5 transition-transform hover:scale-105">
-        <img className="w-full h-52 lg:h-72 rounded-xl" src={image} alt="" />
+      <div className="dark:bg-c shadow-xl rounded-xl p-5 transition-transform hover:scale-105">
+        <img className="w-full h-52 lg:h-48 rounded-xl" src={image} alt="" />
         <div className="flex justify-center items-center mt-5">
           <img src={border} alt="" />
         </div>

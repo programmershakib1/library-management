@@ -11,7 +11,7 @@ const BookTable = ({ books }) => {
   return (
     <div className="w-full overflow-x-auto border border-gray-200 text-center">
       <table className="w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+        <thead className="bg-gray-50 dark:bg-c">
           <motion.tr {...animationValue}>
             <th className="py-5">Image</th>
             <th className="py-5">Title</th>
@@ -47,7 +47,7 @@ const BookTable = ({ books }) => {
               <td className="whitespace-nowrap py-5">
                 <Zoom>
                   <p
-                    className={`font-semibold badge ${
+                    className={`font-semibold badge dark:bg-c ${
                       book.category === "Novel" ? "text-primary" : ""
                     } ${book.category === "Thriller" ? "text-warning" : ""} ${
                       book.category === "History" ? "text-success" : ""
@@ -81,7 +81,7 @@ const BookTable = ({ books }) => {
               <td className="whitespace-nowrap py-5">
                 <Zoom>
                   <Link to={`/updateBook/${book._id}`}>
-                    <button className="btn btn-xs font-bold">Update</button>
+                    <button className="btn btn-xs font-bold dark:bg-c dark:text-white">Update</button>
                   </Link>
                 </Zoom>
               </td>

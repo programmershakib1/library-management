@@ -29,11 +29,11 @@ const BookCategoryPage = () => {
   return (
     <div>
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:mt-10 mx-5 md:mx-0">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
           <Helmet>
             <title>{`LMS - Category ${
               pathname === "/category/Novel" ? "Novel" : ""

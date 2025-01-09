@@ -65,7 +65,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="md:mt-10 mx-5 md:mx-0">
+    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
         <title>LMS - Sign Up</title>
       </Helmet>
@@ -82,7 +82,7 @@ const SignUp = () => {
               name="name"
               type="text"
               placeholder="Name"
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
@@ -94,7 +94,7 @@ const SignUp = () => {
               name="photo"
               type="text"
               placeholder="Photo url"
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
@@ -106,7 +106,7 @@ const SignUp = () => {
               name="email"
               type="email"
               placeholder="Email"
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
@@ -118,13 +118,15 @@ const SignUp = () => {
               name="password"
               type="password"
               placeholder="Password"
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
-          <button className="w-full bg-primary mt-5 py-2 rounded-full font-bold">
-            Sign Up
-          </button>
+          <div className="flex justify-center">
+            <button className="w-1/2 bg-primary dark:bg-c mt-5 py-2 rounded-full font-bold">
+              Sign Up
+            </button>
+          </div>
         </form>
         <p className="pt-2 text-center text-sm font-semibold">
           Already have an Account?<span> </span>
@@ -156,7 +158,7 @@ const SignUp = () => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary py-2 rounded-full font-bold"
+            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
           >
             <i className="fa-brands fa-google pr-2"></i>Google
           </button>
@@ -183,7 +185,7 @@ const SignUp = () => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary py-2 rounded-full font-bold"
+            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
           >
             <i className="fa-brands fa-github pr-2"></i>Github
           </button>

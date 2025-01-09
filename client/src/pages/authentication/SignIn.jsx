@@ -64,7 +64,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="md:mt-10 mx-5 md:mx-0">
+    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
         <title>LMS - Sign In</title>
       </Helmet>
@@ -82,7 +82,7 @@ const SignIn = () => {
               type="email"
               placeholder="Email"
               ref={emailRef}
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
@@ -94,7 +94,7 @@ const SignIn = () => {
               name="password"
               type="password"
               placeholder="Password"
-              className="mt-1 p-3 rounded-full border border-black"
+              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
               required
             />
           </div>
@@ -103,9 +103,11 @@ const SignIn = () => {
               Forget password?
             </p>
           </Link>
-          <button className="w-full bg-primary py-2 rounded-full font-bold">
-            Sign In
-          </button>
+          <div className="flex justify-center">
+            <button className="w-1/2 bg-primary dark:bg-c py-2 rounded-full font-bold">
+              Sign In
+            </button>
+          </div>
         </form>
         <p className="pt-2 text-center text-sm font-semibold">
           Don&apos;t have an Account?<span> </span>
@@ -138,7 +140,7 @@ const SignIn = () => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary py-2 rounded-full font-bold"
+            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
           >
             <i className="fa-brands fa-google pr-2"></i>Google
           </button>
@@ -166,7 +168,7 @@ const SignIn = () => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary py-2 rounded-full font-bold"
+            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
           >
             <i className="fa-brands fa-github pr-2"></i>Github
           </button>

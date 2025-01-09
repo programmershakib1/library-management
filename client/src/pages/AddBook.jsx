@@ -67,7 +67,7 @@ const AddBook = () => {
   };
 
   return (
-    <div className="md:mt-10 mx-5 md:mx-0">
+    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
         <title>LMS - Add Book</title>
       </Helmet>
@@ -80,7 +80,7 @@ const AddBook = () => {
             <input
               type="text"
               placeholder="Book Name"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("name", { required: "Name is required" })}
             />
             {errors.name && <p>{errors.name.message}</p>}
@@ -92,7 +92,7 @@ const AddBook = () => {
             <input
               type="text"
               placeholder="Author Name"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("author", { required: "Author is required" })}
             />
             {errors.author && <p>{errors.author.message}</p>}
@@ -106,7 +106,7 @@ const AddBook = () => {
             <input
               type="url"
               placeholder="Image"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("image", { required: "Image URL is required" })}
             />
             {errors.image && <p>{errors.image.message}</p>}
@@ -118,7 +118,7 @@ const AddBook = () => {
             <input
               type="number"
               placeholder="Quantity"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("quantity", {
                 required: "Quantity is required",
                 min: {
@@ -142,7 +142,7 @@ const AddBook = () => {
             <input
               type="number"
               placeholder="Rating"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("rating", {
                 required: "Rating is required",
                 min: { value: 1, message: "Rating must be at least 1" },
@@ -157,7 +157,7 @@ const AddBook = () => {
             </label>
             <select
               defaultValue={""}
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("category", { required: "Category is required" })}
             >
               <option value="" disabled>
@@ -178,7 +178,7 @@ const AddBook = () => {
           </label>
           <textarea
             placeholder="Short Description"
-            className="border border-black mt-2 h-20 p-3"
+            className="border border-black dark:bg-c mt-2 h-20 p-3"
             {...register("description", {
               required: "Description is required",
             })}
@@ -191,7 +191,7 @@ const AddBook = () => {
           </label>
           <textarea
             placeholder="Book Content"
-            className="border border-black mt-2 h-40 p-3"
+            className="border border-black dark:bg-c mt-2 h-40 p-3"
             {...register("book_content", {
               required: "Book content is required",
             })}
@@ -199,7 +199,7 @@ const AddBook = () => {
           {errors.book_content && <p>{errors.book_content.message}</p>}
         </div>
         <div className="flex justify-center mt-5">
-          <button className="bg-primary py-2 px-6 font-bold">Add Book</button>
+          <button className="bg-primary dark:bg-c py-2 px-6 font-bold">Add Book</button>
         </div>
       </form>
       <Link to="/addAcademicBook">

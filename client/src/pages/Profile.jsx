@@ -49,7 +49,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-0 mt-10">
+    <div className="mx-5 md:mx-0 md:mt-9 dark:mt-10 md:dark:mt-24">
       <Helmet>
         <title>LMS - Profile</title>
       </Helmet>
@@ -66,12 +66,12 @@ const Profile = () => {
         <p className="text-p font-semibold">{user?.email}</p>
         <div className="flex flex-col gap-3 mt-2">
           <Link to="/updateProfile">
-            <button className="w-full border rounded-full border-black py-1 px-10 font-semibold">
+            <button className="w-full border dark:bg-c rounded-full border-black py-1 px-10 font-semibold">
               Update Profile
             </button>
           </Link>
           <Link to="/SignIn">
-            <button className="w-full border rounded-full border-black py-1 px-10 font-semibold">
+            <button className="w-full border dark:bg-c rounded-full border-black py-1 px-10 font-semibold">
               Change Account
             </button>
           </Link>
@@ -148,7 +148,7 @@ const Profile = () => {
                 {formatDate(new Date(book?.return_date), "P")}
               </div>
               <div>
-                <span className="font-bold">Borrowed Date</span> :{" "}
+                <span className="font-bold">Gifted Date</span> :{" "}
                 {formatDate(new Date(book?.borrowed_date), "P")}
               </div>
             </div>
@@ -161,7 +161,7 @@ const Profile = () => {
         id="my_modal_5"
         className="modal sm:modal-middle text-center dark:text-black"
       >
-        <div className="modal-box">
+        <div className="modal-box dark:bg-c dark:text-white">
           <h3 className="font-bold text-3xl">{user.displayName}</h3>
           <h4 className="py-4 text-error text-lg font-bold">
             You are in danger zone now

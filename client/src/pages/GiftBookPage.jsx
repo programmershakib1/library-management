@@ -90,17 +90,17 @@ const GiftBookPage = () => {
         <title>LMS - Gift Book</title>
       </Helmet>
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className="md:mt-10">
+        <div className="md:mt-9 dark:mt-10 md:dark:mt-24">
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5">
             {books?.map((book, idx) => (
               <motion.div
                 {...animationValue}
                 key={idx}
-                className="rounded-xl p-5 hover:shadow-2xl shadow-md"
+                className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
               >
                 <img
                   className="w-full h-40 rounded-xl"
@@ -124,7 +124,7 @@ const GiftBookPage = () => {
           </div>
           {/* modal */}
           <dialog id="my_modal_5" className="modal sm:modal-middle">
-            <div className="modal-box">
+            <div className="modal-box dark:bg-black">
               <form id="applyForm" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col mt-10">
                   <label>
@@ -134,7 +134,7 @@ const GiftBookPage = () => {
                     type="text"
                     placeholder="Name"
                     required
-                    className="mt-1 mb-2 border border-black p-2 rounded-full"
+                    className="mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                     {...register("name", { required: "Name is required" })}
                   />
                   {errors.name && <p>{errors.name.message}</p>}
@@ -147,7 +147,7 @@ const GiftBookPage = () => {
                     type="email"
                     placeholder="Email"
                     required
-                    className="mt-1 mb-2 border border-black p-2 rounded-full"
+                    className="mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                     {...register("email", {
                       required: "Email is required",
                       pattern: {
@@ -168,7 +168,7 @@ const GiftBookPage = () => {
                     placeholder="Email"
                     required
                     defaultValue={user?.email}
-                    className="mt-1 mb-2 border border-black p-2 rounded-full"
+                    className="mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                     {...register("your_email", {
                       required: "Your email is required",
                     })}
@@ -180,7 +180,7 @@ const GiftBookPage = () => {
                     <span className="font-semibold">Return date</span>
                   </label>
                   <DatePicker
-                    className="w-full mt-1 mb-2 border border-black p-2 rounded-full"
+                    className="w-full mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                     selected={returnDate}
                     onChange={(date) => setReturnDate(date)}
                   />

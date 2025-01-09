@@ -23,7 +23,7 @@ const PopularBooks = () => {
     <div
       className={
         pathname === "/popularBooks"
-          ? "md:mt-10 mx-5 md:mx-0"
+          ? "md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0"
           : "mt-20 mx-5 md:mx-0"
       }
     >
@@ -57,7 +57,7 @@ const PopularBooks = () => {
           <motion.div
             {...animationValue}
             key={idx}
-            className="rounded-xl p-5 hover:shadow-2xl shadow-md"
+            className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
           >
             <img className="w-full h-40 rounded-xl" src={book?.image} alt="" />
             <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
@@ -75,7 +75,7 @@ const PopularBooks = () => {
         <Link to="/popularBooks">
           <motion.button
             {...animationValue}
-            className="bg-primary py-3 px-8 font-bold mt-5 font-row"
+            className="bg-primary dark:bg-c py-3 px-8 font-bold mt-5 font-row"
           >
             View More
           </motion.button>

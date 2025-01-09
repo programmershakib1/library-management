@@ -42,7 +42,7 @@ const AcademicBooks = () => {
           <motion.div
             {...animationValue}
             key={idx}
-            className="rounded-xl p-5 hover:shadow-2xl shadow-md"
+            className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
           >
             <img className="w-full h-40 rounded-xl" src={book?.image} alt="" />
             <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
@@ -57,7 +57,7 @@ const AcademicBooks = () => {
       <Link to="/academicBookPage">
         <motion.button
           {...animationValue}
-          className="bg-primary py-3 px-8 font-bold mt-5 font-row"
+          className="bg-primary dark:bg-c py-3 px-8 font-bold mt-5 font-row"
         >
           View More
         </motion.button>

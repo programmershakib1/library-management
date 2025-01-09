@@ -49,7 +49,7 @@ const BorrowedBooks = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-0">
+    <div className="mx-5 md:mx-0 min-h-screen">
       <Helmet>
         <title>LMS - Borrowed Books</title>
       </Helmet>
@@ -71,16 +71,16 @@ const BorrowedBooks = () => {
         ""
       )}
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:mt-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:mt-9 dark:mt-10 md:dark:mt-24">
           {borrows.map((borrow, idx) => (
             <Zoom key={idx}>
-              <div className="shadow-xl rounded-xl p-5 transition-transform hover:scale-105">
+              <div className="dark:bg-c shadow-xl rounded-xl p-5 transition-transform hover:scale-105">
                 <img
-                  className="w-full h-52 lg:h-72 rounded-xl"
+                  className="w-full h-52 lg:h-48 rounded-xl"
                   src={borrow?.image}
                   alt=""
                 />

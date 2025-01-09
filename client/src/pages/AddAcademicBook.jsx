@@ -46,7 +46,7 @@ const AddAcademicBook = () => {
   };
 
   return (
-    <div className="md:mt-10 mx-5 md:mx-0">
+    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
         <title>LMS - Add Academic Book</title>
       </Helmet>
@@ -59,7 +59,7 @@ const AddAcademicBook = () => {
             <input
               type="text"
               placeholder="Book Name"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("name", { required: "Name is required" })}
             />
             {errors.name && <p>{errors.name.message}</p>}
@@ -71,7 +71,7 @@ const AddAcademicBook = () => {
             <input
               type="text"
               placeholder="Class Name"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("class_name", {
                 required: "Class name is required",
               })}
@@ -87,7 +87,7 @@ const AddAcademicBook = () => {
             <input
               type="url"
               placeholder="Book Image"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("image", { required: "Image URL is required" })}
             />
             {errors.image && <p>{errors.image.message}</p>}
@@ -99,7 +99,7 @@ const AddAcademicBook = () => {
             <input
               type="number"
               placeholder="Year"
-              className="border border-black mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("year", {
                 required: "Year is required",
               })}
@@ -114,7 +114,7 @@ const AddAcademicBook = () => {
           <input
             type="url"
             placeholder="Source URL"
-            className="border border-black mt-2 p-3 rounded-full"
+            className="border border-black dark:bg-c mt-2 p-3 rounded-full"
             {...register("source", {
               required: "Source URL is required",
             })}
@@ -127,7 +127,7 @@ const AddAcademicBook = () => {
           </label>
           <textarea
             placeholder="Short Description"
-            className="border border-black mt-2 h-20 p-3"
+            className="border border-black dark:bg-c mt-2 h-20 p-3"
             {...register("description", {
               required: "Description is required",
             })}
@@ -140,7 +140,7 @@ const AddAcademicBook = () => {
           </label>
           <textarea
             placeholder="Book Content"
-            className="border border-black mt-2 h-40 p-3"
+            className="border border-black dark:bg-c mt-2 h-40 p-3"
             {...register("book_content", {
               required: "Book content is required",
             })}
@@ -148,7 +148,7 @@ const AddAcademicBook = () => {
           {errors.book_content && <p>{errors.book_content.message}</p>}
         </div>
         <div className="flex justify-center mt-5">
-          <button className="bg-accent py-2 px-6 font-bold">Add Book</button>
+          <button className="bg-accent dark:bg-c py-2 px-6 font-bold">Add Book</button>
         </div>
       </form>
       <Link to="/addBook">

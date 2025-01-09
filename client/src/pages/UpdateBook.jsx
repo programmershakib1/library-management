@@ -120,13 +120,13 @@ const UpdateBook = () => {
         <title>LMS - Update Book</title>
       </Helmet>
       {loading ? (
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 dark:mt-20">
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="md:mt-10 flex flex-col gap-2"
+          className="md:mt-9 dark:mt-10 md:dark:mt-24 flex flex-col gap-2"
         >
           <div className="flex flex-col md:flex-row justify-between gap-5">
             <div className="w-full flex flex-col">
@@ -138,7 +138,7 @@ const UpdateBook = () => {
                 type="text"
                 placeholder="Book Name"
                 defaultValue={name}
-                className="border border-black mt-2 p-3 rounded-full"
+                className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("name", { required: "Name is required" })}
               />
               {errors.name && <p>{errors.name.message}</p>}
@@ -153,7 +153,7 @@ const UpdateBook = () => {
                   type="text"
                   placeholder="Class Name"
                   defaultValue={book?.class_name}
-                  className="border border-black mt-2 p-3 rounded-full"
+                  className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                   {...register("class_name", {
                     required: "Class name is required",
                   })}
@@ -171,7 +171,7 @@ const UpdateBook = () => {
                   type="text"
                   placeholder="Author Name"
                   defaultValue={author}
-                  className="border border-black mt-2 p-3 rounded-full"
+                  className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                   {...register("author", { required: "Author is required" })}
                 />
                 {errors.author && <p>{errors.author.message}</p>}
@@ -188,7 +188,7 @@ const UpdateBook = () => {
                 type="url"
                 placeholder="Image"
                 defaultValue={image}
-                className="border border-black mt-2 p-3 rounded-full"
+                className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("image", { required: "Image URL is required" })}
               />
               {errors.image && <p>{errors.image.message}</p>}
@@ -203,7 +203,7 @@ const UpdateBook = () => {
                   type="number"
                   placeholder="Year"
                   defaultValue={book?.year}
-                  className="border border-black mt-2 p-3 rounded-full"
+                  className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                   {...register("year", {
                     required: "Year is required",
                   })}
@@ -221,7 +221,7 @@ const UpdateBook = () => {
                   type="number"
                   placeholder="Rating"
                   defaultValue={rating}
-                  className="border border-black mt-2 p-3 rounded-full"
+                  className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                   {...register("rating", {
                     required: "Rating is required",
                     min: {
@@ -248,7 +248,7 @@ const UpdateBook = () => {
                 type="url"
                 placeholder="Source URL"
                 defaultValue={book?.source}
-                className="border border-black mt-2 p-3 rounded-full"
+                className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("source", {
                   required: "Source URL is required",
                 })}
@@ -264,7 +264,7 @@ const UpdateBook = () => {
               <select
                 name="category"
                 defaultValue={category}
-                className="border border-black mt-2 p-3 rounded-full"
+                className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("category", { required: "Category is required" })}
               >
                 <option disabled value="Select Category">
@@ -280,7 +280,7 @@ const UpdateBook = () => {
             </div>
           )}
           <div className="flex justify-center mt-5">
-            <button className="bg-primary py-2 px-6 font-bold">
+            <button className="bg-primary dark:bg-c py-2 px-6 font-bold">
               Update Book
             </button>
           </div>

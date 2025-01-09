@@ -87,7 +87,7 @@ const Features = () => {
           </p>
         </motion.div>
       </div>
-      <div className="flex flex-col md:flex-row justify-center lg:gap-40 mb-10 md:mb-0">
+      <div className="flex flex-col md:flex-row justify-center md:gap-10 lg:gap-40 mb-10 md:mb-0">
         <motion.div
           {...animationValue}
           className="w-full flex flex-col justify-center text-center"
