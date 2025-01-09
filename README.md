@@ -132,11 +132,34 @@ The Library Management System (LMS) is a cutting-edge platform designed to strea
 
 To get this project up and running on your local machine, follow these steps:
 
-### 1. Clone the Repository
+1. Clone the repository:
 
-## 2. Install Dependencies
+   ```bash
+   git clone https://github.com/your-username/library-management.git
+   cd library-management
+   ```
 
-## 3. Set Up Environment Variables
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure the environment variables:
+
+   - Create a `.env` file in the root directory.
+   - Add the necessary variables for MongoDB, Firebase, JWT.
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Start the backend server:
+   ```bash
+   node index.js
+   ```
 
 ---
 
