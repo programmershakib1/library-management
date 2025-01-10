@@ -68,10 +68,7 @@ const Footer = () => {
           © 2024 LMS. All rights Reserved.
         </p>
         <div className="flex items-center justify-center gap-2">
-          <a
-            href=""
-            target="_blank"
-          >
+          <a href="" target="_blank">
             <i className="fa-brands fa-facebook text-3xl"></i>
           </a>
           <a href="#" target="_blank">
