@@ -17,6 +17,7 @@ app.use(
       "http://localhost:5175",
       "http://localhost:5176",
       "https://assignment-11-batch-10.netlify.app",
+      "https://library-management-system-lms1.netlify.app",
     ],
     credentials: true,
   })
