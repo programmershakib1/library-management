@@ -6,7 +6,7 @@ The Library Management System (LMS) is a cutting-edge platform designed to strea
 
 ---
 
-## [Visit The Site](https://assignment-11-batch-10.netlify.app)
+## [Visit The Site](https://library-management-system-lms1.netlify.app)
 
 ---
 
