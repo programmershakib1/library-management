@@ -54,7 +54,7 @@ const BorrowedBooks = () => {
         <title>LMS - Borrowed Books</title>
       </Helmet>
       {!borrows.length && !loading ? (
-        <div className="text-center my-10">
+        <div className="text-center mt-9 dark:mt-10 md:dark:mt-24">
           <div>
             <h2 className="font-semibold mb-3">
               No books you borrowed were found. Explore the All Books page to
