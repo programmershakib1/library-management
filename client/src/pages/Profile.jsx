@@ -58,7 +58,7 @@ const Profile = () => {
           Welcome {user?.displayName}
         </h2>
         <img
-          className="w-40 h-40 rounded-full animate__animated animate__zoomIn mt-5"
+          className="w-40 h-40 rounded-full object-cover animate__animated animate__zoomIn mt-5"
           src={user.photoURL}
           alt=""
         />

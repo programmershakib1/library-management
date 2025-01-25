@@ -60,7 +60,7 @@ const Navbar = () => {
               <img
                 data-tooltip-id="tooltip"
                 data-tooltip-content={user?.displayName}
-                className="w-12 rounded-full"
+                className="w-12 h-12 rounded-full object-cover"
                 src={user?.photoURL}
                 alt="User"
               />
