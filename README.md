@@ -167,7 +167,7 @@ To get this project up and running on your local machine, follow these steps:
 
 ## 🔗 Live Project & Resources
 
-🌍 **Live Site:** [ScholarMS](https://library-management-system-lms1.netlify.app/)
+🌍 **Live Site:** [LMS](https://library-management-system-lms1.netlify.app/)
 
 📂 **GitHub Repository:** [GitHub Link](https://github.com/programmershakib1/lms)
 
