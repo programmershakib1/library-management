@@ -1,25 +1,27 @@
 import BookCard from "../components/BookCard";
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import BookTable from "../components/BookTable";
 import { Helmet } from "react-helmet-async";
-import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [showAvailable, setShowAvailable] = useState(false);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("card");
-  const axiosSecure = useAxiosSecure();
-  const { user } = useAuth();
 
   useEffect(() => {
-    if (!user) return;
-    axiosSecure.get(`/all-books?showAvailable=${showAvailable}`).then((res) => {
-      setBooks(res.data);
-      setLoading(false);
-    });
-  }, [axiosSecure, showAvailable, user]);
+    axios
+      .get(
+        `${
+          import.meta.env.VITE_SERVER_URL
+        }/all-books?showAvailable=${showAvailable}`
+      )
+      .then((res) => {
+        setBooks(res.data);
+        setLoading(false);
+      });
+  }, [showAvailable]);
 
   const handleFilter = () => {
     setLoading(true);
@@ -45,7 +47,9 @@ const AllBooks = () => {
             <button
               onClick={() => handleViewToggle("card")}
               className={`text-3xl ${
-                viewMode === "card" ? "text-black dark:text-white" : "text-gray-500"
+                viewMode === "card"
+                  ? "text-black dark:text-white"
+                  : "text-gray-500"
               }`}
             >
               <i className="fa-solid fa-table-cells"></i>
@@ -53,7 +57,9 @@ const AllBooks = () => {
             <button
               onClick={() => handleViewToggle("table")}
               className={`text-3xl ${
-                viewMode === "table" ? "text-black dark:text-white" : "text-gray-500"
+                viewMode === "table"
+                  ? "text-black dark:text-white"
+                  : "text-gray-500"
               }`}
             >
               <i className="fa-solid fa-table-list"></i>

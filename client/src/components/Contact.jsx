@@ -63,7 +63,7 @@ const Contact = () => {
             className="border border-black dark:bg-c mt-2 p-3 rounded-full"
             {...register("name", { required: "Name is required" })}
           />
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
         <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-5">
           <div className="w-full flex flex-col">
@@ -77,7 +77,7 @@ const Contact = () => {
               className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("phone", { required: "Phone is required" })}
             />
-            {errors.phone && <p>{errors.phone.message}</p>}
+            {errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
           </div>
           <div className="w-full flex flex-col">
             <label>
@@ -90,7 +90,7 @@ const Contact = () => {
               className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("email", { required: "Email is required" })}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </div>
         </div>
         <div className="flex flex-col">
@@ -104,7 +104,7 @@ const Contact = () => {
             className="border border-black dark:bg-c h-40 mt-2 p-3"
             {...register("question", { required: "Question is required" })}
           ></textarea>
-          {errors.question && <p>{errors.question.message}</p>}
+          {errors.question && <p className="text-red-500">{errors.question.message}</p>}
         </div>
         <div className="flex justify-center">
           <button className="bg-primary dark:bg-c py-3 px-20 rounded-sm font-bold mt-3 font-row">

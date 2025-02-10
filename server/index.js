@@ -93,7 +93,7 @@ async function run() {
     });
 
     // books
-    app.get("/all-books", verifyToken, async (req, res) => {
+    app.get("/all-books", async (req, res) => {
       const { showAvailable } = req.query;
 
       let filter = {};

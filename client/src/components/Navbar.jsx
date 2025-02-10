@@ -26,8 +26,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-0 flex justify-between items-center bg-white text-black dark:rounded-full py-5 md:py-10 dark:py-2.5 sticky top-0 dark:top-5 md:dark:top-10 z-50 ">
-      <div className="dark:pl-3">
+    <div className="mx-5 md:mx-0 flex justify-between items-center bg-white text-black dark:rounded-full py-5 md:py-10 dark:py-5 sticky top-0 dark:top-5 md:dark:top-10 z-50 ">
+      <div className="dark:pl-5">
         <Link to="/" className="flex items-center gap-2">
           <img className="w-12 h-12" src={logo} alt="Logo" />
           <h2 className="hidden md:block font-black text-3xl font-sora">LMS</h2>
@@ -36,14 +36,14 @@ const Navbar = () => {
       <div className="hidden lg:block">
         <div className="font-semibold text-p flex gap-5">
           <NavLink to="/">Home</NavLink>
+          <NavLink to="/allBooks">All Books</NavLink>
           {user && (
             <>
-              <NavLink to="/allBooks">All Books</NavLink>
               <NavLink to="/addBook">Add Book</NavLink>
               <NavLink to="/borrowedBooks">Borrowed Books</NavLink>
-              <NavLink to="/profile">Profile</NavLink>
             </>
           )}
+          <NavLink to="/profile">Profile</NavLink>
         </div>
       </div>
       <div className="flex items-center gap-4">
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleSingOut}
-              className="hidden md:block bg-black text-white font-bold lg:mr-3 py-3 px-8 rounded-full"
+              className="hidden md:block bg-black text-white font-bold dark:lg:mr-5 py-3 px-8 rounded-full"
             >
               Sign Out
             </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div>
-            <button className="hidden md:block bg-black text-white font-bold lg:mr-3 py-3 px-8 rounded-full">
+            <button className="hidden md:block bg-black text-white font-bold dark:lg:mr-5 py-3 px-8 rounded-full">
               <Link to="/signIn">Sign In</Link>
             </button>
             <button className="block md:hidden">
@@ -88,14 +88,17 @@ const Navbar = () => {
             </button>
           </div>
         )}
-        <div className="block lg:hidden dark:pr-3">
+        <div className="block lg:hidden dark:pr-5">
           {theme === "light" ? (
             <i
               className="fa-solid fa-bars text-4xl"
               onClick={toggleSidebar}
             ></i>
           ) : (
-            <i onClick={toggleSidebar} className="fa-solid fa-bars-staggered text-4xl"></i>
+            <i
+              onClick={toggleSidebar}
+              className="fa-solid fa-bars-staggered text-4xl"
+            ></i>
           )}
           <div
             className={`fixed z-10 left-0 top-0 h-screen w-2/3 md:w-1/3 bg-gray-800 transform ${
@@ -121,11 +124,11 @@ const Navbar = () => {
                   <NavLink to="/borrowedBooks" onClick={() => setIsOpen(false)}>
                     Borrowed Books
                   </NavLink>
-                  <NavLink to="/profile" onClick={() => setIsOpen(false)}>
-                    Profile
-                  </NavLink>
                 </>
               )}
+              <NavLink to="/profile" onClick={() => setIsOpen(false)}>
+                Profile
+              </NavLink>
             </nav>
           </div>
         </div>

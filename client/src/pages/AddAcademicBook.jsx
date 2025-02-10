@@ -62,7 +62,9 @@ const AddAcademicBook = () => {
               className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("name", { required: "Name is required" })}
             />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.name && (
+              <p className="text-red-500">{errors.name.message}</p>
+            )}
           </div>
           <div className="w-full flex flex-col">
             <label>
@@ -76,7 +78,9 @@ const AddAcademicBook = () => {
                 required: "Class name is required",
               })}
             />
-            {errors.class_name && <p>{errors.class_name.message}</p>}
+            {errors.class_name && (
+              <p className="text-red-500">{errors.class_name.message}</p>
+            )}
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between gap-5">
@@ -90,7 +94,9 @@ const AddAcademicBook = () => {
               className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("image", { required: "Image URL is required" })}
             />
-            {errors.image && <p>{errors.image.message}</p>}
+            {errors.image && (
+              <p className="text-red-500">{errors.image.message}</p>
+            )}
           </div>
           <div className="w-full flex flex-col">
             <label>
@@ -104,7 +110,9 @@ const AddAcademicBook = () => {
                 required: "Year is required",
               })}
             />
-            {errors.year && <p>{errors.year.message}</p>}
+            {errors.year && (
+              <p className="text-red-500">{errors.year.message}</p>
+            )}
           </div>
         </div>
         <div className="w-full flex flex-col">
@@ -119,7 +127,9 @@ const AddAcademicBook = () => {
               required: "Source URL is required",
             })}
           />
-          {errors.source && <p>{errors.source.message}</p>}
+          {errors.source && (
+            <p className="text-red-500">{errors.source.message}</p>
+          )}
         </div>
         <div className="flex flex-col">
           <label>
@@ -132,7 +142,9 @@ const AddAcademicBook = () => {
               required: "Description is required",
             })}
           />
-          {errors.description && <p>{errors.description.message}</p>}
+          {errors.description && (
+            <p className="text-red-500">{errors.description.message}</p>
+          )}
         </div>
         <div className="flex flex-col">
           <label>
@@ -145,10 +157,14 @@ const AddAcademicBook = () => {
               required: "Book content is required",
             })}
           />
-          {errors.book_content && <p>{errors.book_content.message}</p>}
+          {errors.book_content && (
+            <p className="text-red-500">{errors.book_content.message}</p>
+          )}
         </div>
         <div className="flex justify-center mt-5">
-          <button className="bg-accent dark:bg-c py-2 px-6 font-bold">Add Book</button>
+          <button className="bg-accent dark:bg-c py-2 px-6 font-bold">
+            Add Book
+          </button>
         </div>
       </form>
       <Link to="/addBook">

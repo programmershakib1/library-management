@@ -10,12 +10,12 @@ const BookCard = ({ book }) => {
 
   return (
     <Zoom>
-      <div className="dark:bg-c shadow-xl rounded-xl p-5 transition-transform hover:scale-105">
+      <div className="relative dark:bg-c shadow-xl rounded-xl p-5 transition-transform hover:scale-105 min-h-[480px]">
         <img className="w-full h-52 lg:h-48 rounded-xl" src={image} alt="" />
         <div className="flex justify-center items-center mt-5">
           <img src={border} alt="" />
         </div>
-        <div className="flex items-center justify-between mt-5">
+        <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold">{name}</h2>
           <p
             className={`font-semibold badge ${
@@ -29,7 +29,7 @@ const BookCard = ({ book }) => {
             {category}
           </p>
         </div>
-        <h4 className="font-semibold mb-3 mt-3">Author : {author}</h4>
+        <h4 className="font-semibold mb-1 mt-1">Author : {author}</h4>
         <p className="font-semibold">Quantity : {quantity}</p>
         <div className="flex items-center gap-2">
           <p className="font-semibold">Rating : </p>
@@ -44,13 +44,13 @@ const BookCard = ({ book }) => {
         </div>
         {pathname === "/allBooks" ? (
           <Link to={`/updateBook/${_id}`} state={{ academicBook: false }}>
-            <button className="w-full btn btn-sm px-6 font-bold rounded-sm mt-3">
+            <button className="absolute bottom-5 btn btn-sm px-6 font-bold rounded-sm mt-1">
               Update
             </button>
           </Link>
         ) : (
           <Link to={`/bookDetails/${_id}`} state={{ academicBook: false }}>
-            <button className="w-full btn btn-sm px-6 font-bold rounded-sm mt-3">
+            <button className="absolute bottom-5 btn btn-sm px-6 font-bold rounded-sm mt-1">
               Details
             </button>
           </Link>
