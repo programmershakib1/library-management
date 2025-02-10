@@ -57,7 +57,7 @@ const AcademicBooks = () => {
       <Link to="/academicBookPage">
         <motion.button
           {...animationValue}
-          className="bg-primary dark:bg-c py-3 px-8 font-bold mt-5 font-row"
+          className="border-2 border-black dark:bg-c py-3 px-8 font-bold mt-5 font-row rounded-md"
         >
           View More
         </motion.button>

@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="flex justify-center">
         <img className="w-14 h-14" src={logo} alt="" />
       </div>
-      <h2 className="text-2xl text-black md:text-5xl font-black font-row text-center mt-2">
-        L M S
+      <h2 className="flex justify-center items-center gap-5 text-2xl text-black md:text-5xl font-black font-row text-center mt-2">
+        <span>L</span> <span>M</span> <span>S</span>
       </h2>
       <p className="text-center font-semibold mb-10 mt-3 lg:mx-52">
         Discover the joy of reading with our extensive library collection. From

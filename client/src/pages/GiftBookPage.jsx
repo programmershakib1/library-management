@@ -100,7 +100,7 @@ const GiftBookPage = () => {
               <motion.div
                 {...animationValue}
                 key={idx}
-                className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
+                className="relative dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md min-h-[350px]"
               >
                 <img
                   className="w-full h-40 rounded-xl"
@@ -115,7 +115,7 @@ const GiftBookPage = () => {
                     setBook(book);
                     document.getElementById("my_modal_5").showModal();
                   }}
-                  className="w-full btn btn-sm px-6 font-bold rounded-sm mt-4"
+                  className="absolute bottom-5 btn btn-sm px-6 font-bold rounded-sm mt-4"
                 >
                   Gift
                 </button>
