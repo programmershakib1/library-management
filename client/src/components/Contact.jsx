@@ -60,7 +60,7 @@ const Contact = () => {
           <input
             type="text"
             placeholder="Name"
-            className="border border-black dark:bg-c mt-2 p-3 rounded-full"
+            className="border border-black dark:bg-c dark:border-c mt-2 p-3 rounded-full"
             {...register("name", { required: "Name is required" })}
           />
           {errors.name && <p className="text-red-500">{errors.name.message}</p>}
@@ -74,7 +74,7 @@ const Contact = () => {
               name="phone"
               type="number"
               placeholder="Phone"
-              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c dark:border-c mt-2 p-3 rounded-full"
               {...register("phone", { required: "Phone is required" })}
             />
             {errors.phone && (
@@ -89,7 +89,7 @@ const Contact = () => {
               name="email"
               type="email"
               placeholder="Email"
-              className="border border-black dark:bg-c mt-2 p-3 rounded-full"
+              className="border border-black dark:bg-c dark:border-c mt-2 p-3 rounded-full"
               {...register("email", { required: "Email is required" })}
             />
             {errors.email && (
@@ -105,18 +105,16 @@ const Contact = () => {
             name="question"
             type="text"
             placeholder="Question"
-            className="border border-black dark:bg-c h-48 mt-2 p-3 rounded-md"
+            className="border border-black dark:bg-c dark:border-c h-48 mt-2 p-3 rounded-md"
             {...register("question", { required: "Question is required" })}
           ></textarea>
           {errors.question && (
             <p className="text-red-500">{errors.question.message}</p>
           )}
         </div>
-        <div className="flex justify-center">
-          <button className="bg-black text-white dark:bg-c py-3 px-20 rounded-sm font-bold mt-3 font-row">
-            SUBMIT
-          </button>
-        </div>
+        <button className="w-36 bg-black text-white dark:bg-c dark:border-c py-2.5 px-6 rounded-sm font-bold mt-3 font-row">
+          SUBMIT
+        </button>
       </motion.form>
     </div>
   );

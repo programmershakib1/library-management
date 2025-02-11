@@ -33,7 +33,7 @@ const AllBooks = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-0">
+    <div className="mx-5 md:mx-0 min-h-96">
       <Helmet>
         <title>LMS - All Books</title>
       </Helmet>
@@ -42,7 +42,7 @@ const AllBooks = () => {
           <span className="loading loading-bars loading-lg"></span>
         </div>
       ) : (
-        <div className="md:mt-9 dark:mt-10 md:dark:mt-24">
+        <div className="dark:mt-10 md:dark:mt-24">
           <div className="flex justify-center items-center gap-5 mt-5">
             <button
               onClick={() => handleViewToggle("card")}

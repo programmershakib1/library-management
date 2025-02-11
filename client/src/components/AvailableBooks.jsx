@@ -18,12 +18,18 @@ const AvailableBooks = () => {
 
   return (
     <div className="mx-5 md:mx-0 mt-20">
-      <motion.h2
-        {...animationValue}
-        className="text-center text-2xl font-black font-row"
-      >
+      <motion.h2 {...animationValue} className="text-2xl font-black font-row text-center">
         Available Books
       </motion.h2>
+      <motion.p
+        {...animationValue}
+        className="text-p font-semibold text-center mt-2"
+      >
+        Discover a diverse collection of books spanning various genres and
+        interests. Whether you&apos;re looking for literary classics,
+        contemporary bestsellers, or hidden gems, <br /> this selection offers
+        something for every reader. Explore and find your next great read!
+      </motion.p>
       <motion.div {...animationValue} className="flex justify-center">
         <img src={border} alt="border" />
       </motion.div>

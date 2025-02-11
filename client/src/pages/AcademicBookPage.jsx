@@ -21,7 +21,7 @@ const AcademicBookPage = () => {
   }, [axiosSecure, user]);
 
   return (
-    <div className="mx-5 md:mx-5">
+    <div className="mx-5 md:mx-5 min-h-96">
       <Helmet>
         <title>LMS - Academic Books</title>
       </Helmet>
@@ -43,24 +43,24 @@ const AcademicBookPage = () => {
                   src={book?.image}
                   alt=""
                 />
-                <div className="flex items-center justify-between mt-5">
-                  <h2 className="font-bold text-xl">{book?.name}</h2>
+                <h2 className="font-bold text-xl mt-5">{book?.name}</h2>
+                <div className="flex justify-between items-center mt-2">
+                  <p className="font-semibold">
+                    <i className="fa-solid fa-school"></i> {book?.class_name}
+                  </p>
+                  <p className="font-semibold">
+                    <i className="fa-solid fa-calendar-days"></i> {book?.year}
+                  </p>
+                </div>
+                <div className="flex justify-between items-center mt-3">
                   <Link
                     to={`/bookDetails/${book?._id}`}
                     state={{ academicBook: true }}
                   >
-                    <button className="w-full btn btn-sm px-6 font-bold rounded-sm">
+                    <button className="font-bold border border-black px-2 py-.5 rounded-md">
                       Details
                     </button>
                   </Link>
-                </div>
-                <p className="font-semibold">
-                  <i className="fa-solid fa-school"></i> {book?.class_name}
-                </p>
-                <div className="flex justify-between items-center">
-                  <p className="font-semibold">
-                    <i className="fa-solid fa-calendar-days"></i> {book?.year}
-                  </p>
                   <a href={book.source} target="_blank">
                     <button className="font-bold border border-black px-2 py-.5 rounded-md">
                       Read

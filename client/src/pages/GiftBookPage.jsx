@@ -58,7 +58,7 @@ const GiftBookPage = () => {
     axiosSecure.post("/add-borrow", borrowInfo).then((res) => {
       reset();
       if (res.data.status === false) {
-        if (res.data.message === "You can borrow up to 3 books only") {
+        if (res.data.message === "You can borrow up to 6 books only") {
           toast.error("User's gift list is full");
           return;
         }
@@ -85,7 +85,7 @@ const GiftBookPage = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-5">
+    <div className="mx-5 md:mx-5 min-h-96">
       <Helmet>
         <title>LMS - Gift Book</title>
       </Helmet>
@@ -147,7 +147,9 @@ const GiftBookPage = () => {
                     className="mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                     {...register("name", { required: "Name is required" })}
                   />
-                  {errors.name && <p>{errors.name.message}</p>}
+                  {errors.name && (
+                    <p className="text-red-500">{errors.name.message}</p>
+                  )}
                 </div>
                 <div className="flex flex-col">
                   <label>
@@ -166,7 +168,9 @@ const GiftBookPage = () => {
                       },
                     })}
                   />
-                  {errors.email && <p>{errors.email.message}</p>}
+                  {errors.email && (
+                    <p className="text-red-500">{errors.email.message}</p>
+                  )}
                 </div>
                 <div className="flex flex-col">
                   <label>
@@ -183,7 +187,9 @@ const GiftBookPage = () => {
                       required: "Your email is required",
                     })}
                   />
-                  {errors.your_email && <p>{errors.your_email.message}</p>}
+                  {errors.your_email && (
+                    <p className="text-red-500">{errors.your_email.message}</p>
+                  )}
                 </div>
                 <div className="flex flex-col">
                   <label>

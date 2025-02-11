@@ -115,7 +115,7 @@ const UpdateBook = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-0">
+    <div className="mx-5 md:mx-0 min-h-96">
       <Helmet>
         <title>LMS - Update Book</title>
       </Helmet>
@@ -141,7 +141,7 @@ const UpdateBook = () => {
                 className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("name", { required: "Name is required" })}
               />
-              {errors.name && <p>{errors.name.message}</p>}
+              {errors.name && <p className="text-red-500">{errors.name.message}</p>}
             </div>
             {book.class_name && (
               <div className="w-full flex flex-col">
@@ -158,7 +158,7 @@ const UpdateBook = () => {
                     required: "Class name is required",
                   })}
                 />
-                {errors.class_name && <p>{errors.class_name.message}</p>}
+                {errors.class_name && <p className="text-red-500">{errors.class_name.message}</p>}
               </div>
             )}
             {author && (
@@ -174,7 +174,7 @@ const UpdateBook = () => {
                   className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                   {...register("author", { required: "Author is required" })}
                 />
-                {errors.author && <p>{errors.author.message}</p>}
+                {errors.author && <p className="text-red-500">{errors.author.message}</p>}
               </div>
             )}
           </div>
@@ -191,7 +191,7 @@ const UpdateBook = () => {
                 className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("image", { required: "Image URL is required" })}
               />
-              {errors.image && <p>{errors.image.message}</p>}
+              {errors.image && <p className="text-red-500">{errors.image.message}</p>}
             </div>
             {book.year && (
               <div className="w-full flex flex-col">
@@ -208,7 +208,7 @@ const UpdateBook = () => {
                     required: "Year is required",
                   })}
                 />
-                {errors.year && <p>{errors.year.message}</p>}
+                {errors.year && <p className="text-red-500">{errors.year.message}</p>}
               </div>
             )}
             {rating && (
@@ -234,7 +234,7 @@ const UpdateBook = () => {
                     },
                   })}
                 />
-                {errors.rating && <p>{errors.rating.message}</p>}
+                {errors.rating && <p className="text-red-500">{errors.rating.message}</p>}
               </div>
             )}
           </div>
@@ -253,7 +253,7 @@ const UpdateBook = () => {
                   required: "Source URL is required",
                 })}
               />
-              {errors.source && <p>{errors.source.message}</p>}
+              {errors.source && <p className="text-red-500">{errors.source.message}</p>}
             </div>
           )}
           {category && (
@@ -276,11 +276,11 @@ const UpdateBook = () => {
                 <option value="Drama">Drama</option>
                 <option value="Sci-Fi">Sci-Fi</option>
               </select>
-              {errors.category && <p>{errors.category.message}</p>}
+              {errors.category && <p className="text-red-500">{errors.category.message}</p>}
             </div>
           )}
           <div className="flex justify-center mt-5">
-            <button className="bg-primary dark:bg-c py-2 px-6 font-bold">
+            <button className="bg-black text-white dark:bg-c py-2 px-6 font-bold">
               Update Book
             </button>
           </div>

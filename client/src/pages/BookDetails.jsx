@@ -114,7 +114,7 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
+    <div className="mt-5 md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0 min-h-96">
       <Helmet>
         <title>LMS - Book Details</title>
       </Helmet>
@@ -236,7 +236,9 @@ const BookDetails = () => {
                 className="mt-1 border border-black dark:bg-c p-2 rounded-full"
                 {...register("name", { required: "Name is required" })}
               />
-              {errors.name && <p>{errors.name.message}</p>}
+              {errors.name && (
+                <p className="text-red-500">{errors.name.message}</p>
+              )}
             </div>
             <div className="flex flex-col mt-2">
               <label>
@@ -251,7 +253,9 @@ const BookDetails = () => {
                 className="mt-1 mb-2 border border-black dark:bg-c p-2 rounded-full"
                 {...register("email", { required: "Email is required" })}
               />
-              {errors.email && <p>{errors.email.message}</p>}
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
             <div className="flex flex-col">
               <label>

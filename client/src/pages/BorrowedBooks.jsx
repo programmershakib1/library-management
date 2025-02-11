@@ -101,22 +101,21 @@ const BorrowedBooks = () => {
                     {borrow.category}
                   </p>
                 </div>
-                <h4 className="font-semibold mt-5">
-                  Author Name : {borrow?.author}
-                </h4>
-                <p className="font-semibold py-2">
-                  Borrowed Date :{" "}
-                  {formatDate(new Date(borrow?.borrowed_date), "P")}
-                </p>
                 <p className="font-semibold">
-                  Return Date : {formatDate(new Date(borrow?.return_date), "P")}
+                  <i className="fa-solid fa-user"></i> {borrow?.author}
                 </p>
-                <button
-                  onClick={() => handleReturn(borrow._id, borrow.bookId)}
-                  className="w-full btn btn-sm px-6 font-bold mt-5"
-                >
-                  Return
-                </button>
+                <div className="flex justify-between items-center">
+                  <p className="font-semibold flex items-center gap-2">
+                    <i className="fa-solid fa-clock"></i>{" "}
+                    {formatDate(new Date(borrow?.return_date), "P")}
+                  </p>
+                  <button
+                    onClick={() => handleReturn(borrow._id, borrow.bookId)}
+                    className="border border-black rounded-md px-6 font-bold"
+                  >
+                    Return
+                  </button>
+                </div>
               </div>
             </Zoom>
           ))}

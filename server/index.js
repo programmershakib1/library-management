@@ -247,10 +247,10 @@ async function run() {
         .find({ email })
         .toArray();
 
-      if (userBorrowedBooks.length >= 3) {
+      if (userBorrowedBooks.length >= 6) {
         return res.send({
           status: false,
-          message: "You can borrow up to 3 books only",
+          message: "You can borrow up to 6 books only",
         });
       }
 

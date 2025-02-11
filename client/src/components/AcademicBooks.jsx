@@ -44,7 +44,7 @@ const AcademicBooks = () => {
             key={idx}
             className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
           >
-            <img className="w-full h-40 rounded-xl" src={book?.image} alt="" />
+            <img className="w-full h-48 md:h-32 lg:h-40 rounded-xl" src={book?.image} alt="" />
             <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
             <p className="font-semibold">
               <i className="fa-solid fa-school"></i> {book?.class_name}

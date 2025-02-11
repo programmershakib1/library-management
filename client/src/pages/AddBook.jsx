@@ -215,7 +215,7 @@ const AddBook = () => {
           )}
         </div>
         <div className="flex justify-center mt-5">
-          <button className="bg-primary dark:bg-c py-2 px-6 font-bold">
+          <button className="bg-black text-white dark:bg-c py-2 px-6 font-bold">
             Add Book
           </button>
         </div>
