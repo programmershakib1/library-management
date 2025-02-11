@@ -40,7 +40,7 @@ const About = () => {
       <Link to="/allBooks">
         <motion.button
           {...animationValue}
-          className="bg-black hover:bg-primary hover:text-black text-white dark:bg-c py-3 px-8 font-semibold mt-3 font-row rounded-sm"
+          className="bg-black text-white dark:bg-c py-3 px-8 font-semibold mt-3 font-row rounded-sm"
         >
           EXPLORE BOOK
         </motion.button>

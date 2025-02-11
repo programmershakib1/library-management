@@ -41,7 +41,7 @@ const BookCategories = () => {
           >
             <motion.div
               {...animationValue}
-              className="h-40 flex flex-col justify-center items-center p-10 hover:bg-primary dark:bg-c rounded-full shadow-md"
+              className="h-40 flex flex-col justify-center items-center p-10 rounded-full shadow-md"
             >
               <i className="fa-solid fa-layer-group text-3xl"></i>
               <h2 className="text-4xl font-bold mt-2 font-row">

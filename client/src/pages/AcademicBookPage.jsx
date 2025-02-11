@@ -45,20 +45,28 @@ const AcademicBookPage = () => {
                 />
                 <div className="flex items-center justify-between mt-5">
                   <h2 className="font-bold text-xl">{book?.name}</h2>
+                  <Link
+                    to={`/bookDetails/${book?._id}`}
+                    state={{ academicBook: true }}
+                  >
+                    <button className="w-full btn btn-sm px-6 font-bold rounded-sm">
+                      Details
+                    </button>
+                  </Link>
+                </div>
+                <p className="font-semibold">
+                  <i className="fa-solid fa-school"></i> {book?.class_name}
+                </p>
+                <div className="flex justify-between items-center">
+                  <p className="font-semibold">
+                    <i className="fa-solid fa-calendar-days"></i> {book?.year}
+                  </p>
                   <a href={book.source} target="_blank">
-                    <button className="font-bold underline">Read</button>
+                    <button className="font-bold border border-black px-2 py-.5 rounded-md">
+                      Read
+                    </button>
                   </a>
                 </div>
-                <p className="font-semibold">Class : {book?.class_name}</p>
-                <p className="font-semibold">Year : {book?.year}</p>
-                <Link
-                  to={`/bookDetails/${book?._id}`}
-                  state={{ academicBook: true }}
-                >
-                  <button className="w-full btn btn-sm px-6 font-bold rounded-sm mt-4">
-                    Details
-                  </button>
-                </Link>
               </motion.div>
             ))}
           </div>

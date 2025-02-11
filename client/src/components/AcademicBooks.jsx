@@ -16,7 +16,7 @@ const AcademicBooks = () => {
         setBooks(res.data);
       });
   }, []);
-  
+
   return (
     <div className="mt-20 mx-5 md:mx-0">
       <div className="flex flex-col items-center justify-center">
@@ -46,18 +46,26 @@ const AcademicBooks = () => {
           >
             <img className="w-full h-40 rounded-xl" src={book?.image} alt="" />
             <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
-            <p className="font-semibold">Class : {book?.class_name}</p>
-            <p className="font-semibold">Year : {book?.year}</p>
-            <a href={book.source} target="_blank">
-              <button className="font-bold underline">Read</button>
-            </a>
+            <p className="font-semibold">
+              <i className="fa-solid fa-school"></i> {book?.class_name}
+            </p>
+            <div className="flex justify-between items-center">
+              <p className="font-semibold">
+                <i className="fa-solid fa-calendar-days"></i> {book?.year}
+              </p>
+              <a href={book.source} target="_blank">
+                <button className="font-bold border border-black px-2 py-.5 rounded-md">
+                  Read
+                </button>
+              </a>
+            </div>
           </motion.div>
         ))}
       </div>
       <Link to="/academicBookPage">
         <motion.button
           {...animationValue}
-          className="border-2 border-black dark:bg-c py-3 px-8 font-bold mt-5 font-row rounded-md"
+          className="border-2 border-black dark:bg-c py-2.5 px-6 font-bold mt-5 font-row rounded-md"
         >
           View More
         </motion.button>

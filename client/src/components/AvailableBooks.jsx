@@ -42,9 +42,11 @@ const AvailableBooks = () => {
             >
               <motion.div
                 {...animationValue}
-                className="h-40 flex flex-col justify-center items-center p-10 hover:bg-primary dark:bg-c rounded-full shadow-md"
+                className="h-40 flex flex-col justify-center items-center p-10 dark:bg- rounded-full shadow-md"
               >
-                <h2 className="font-black font-row text-lg">{category.name}</h2>
+                <h2 className="font-black font-row text-lg mb-2">
+                  {category.name}
+                </h2>
                 <motion.div ref={ref}>
                   {inView && (
                     <CountUp

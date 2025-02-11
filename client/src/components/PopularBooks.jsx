@@ -60,12 +60,24 @@ const PopularBooks = () => {
             className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
           >
             <img className="w-full h-40 rounded-xl" src={book?.image} alt="" />
-            <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
-            <p className="font-semibold">Author : {book?.author}</p>
-            <p className="font-semibold">Published : {book?.publishingDate}</p>
-            <a href={book.read} target="_blank">
-              <button className="font-bold underline">Read</button>
-            </a>
+            <h2 className="font-bold text-xl mt-3">
+              {book?.name.length > 20
+                ? book?.name.substring(0, 24) + "..."
+                : book?.name}
+            </h2>
+            <p className="font-semibold">
+              <i className="fa-solid fa-user"></i> {book?.author}
+            </p>
+            <div className="flex justify-between items-center">
+              <p className="font-semibold">
+                <i className="fa-solid fa-clock"></i> {book?.publishingDate}
+              </p>
+              <a href={book.read} target="_blank">
+                <button className="font-bold border border-black px-2 py-.5 rounded-md">
+                  Read
+                </button>
+              </a>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -75,7 +87,7 @@ const PopularBooks = () => {
         <Link to="/popularBooks">
           <motion.button
             {...animationValue}
-            className="border-2 border-black dark:bg-c py-3 px-8 font-bold mt-5 font-row rounded-md"
+            className="border-2 border-black dark:bg-c py-2.5 px-6 font-bold mt-5 font-row rounded-md"
           >
             View More
           </motion.button>

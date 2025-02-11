@@ -100,25 +100,35 @@ const GiftBookPage = () => {
               <motion.div
                 {...animationValue}
                 key={idx}
-                className="relative dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md min-h-[350px]"
+                className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
               >
                 <img
                   className="w-full h-40 rounded-xl"
                   src={book?.image}
                   alt=""
                 />
-                <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
-                <p className="font-semibold">Author : {book?.author}</p>
-                <p className="font-semibold">Quantity : {book?.quantity}</p>
-                <button
-                  onClick={() => {
-                    setBook(book);
-                    document.getElementById("my_modal_5").showModal();
-                  }}
-                  className="absolute bottom-5 btn btn-sm px-6 font-bold rounded-sm mt-4"
-                >
-                  Gift
-                </button>
+                <h2 className="font-bold text-xl mt-3">
+                  {book?.name.length > 20
+                    ? book?.name.substring(0, 20) + "..."
+                    : book?.name}
+                </h2>
+                <p className="font-semibold">
+                  <i className="fa-solid fa-user"></i> {book?.author}
+                </p>
+                <div className="flex justify-between items-center">
+                  <p className="font-semibold">
+                    <i className="fa-solid fa-book pr-2"></i> {book?.quantity}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setBook(book);
+                      document.getElementById("my_modal_5").showModal();
+                    }}
+                    className="font-bold border border-black px-2 py-.5 rounded-md"
+                  >
+                    Gift
+                  </button>
+                </div>
               </motion.div>
             ))}
           </div>

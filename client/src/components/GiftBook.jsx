@@ -42,15 +42,19 @@ const GiftBook = () => {
           >
             <img className="w-full h-40 rounded-xl" src={book?.image} alt="" />
             <h2 className="font-bold text-xl mt-3">{book?.name}</h2>
-            <p className="font-semibold">Author : {book?.author}</p>
-            <p className="font-semibold">Quantity : {book?.quantity}</p>
+            <p className="font-semibold">
+              <i className="fa-solid fa-user"></i> {book?.author}
+            </p>
+            <p className="font-semibold">
+              <i className="fa-solid fa-book pr-2"></i> {book?.quantity}
+            </p>
           </motion.div>
         ))}
       </div>
       <Link to="/giftBook">
         <motion.button
           {...animationValue}
-          className="border-2 border-black dark:bg-c py-3 px-8 font-bold mt-5 font-row rounded-md"
+          className="border-2 border-black dark:bg-c py-2.5 px-6 font-bold mt-5 font-row rounded-md"
         >
           Explore gift
         </motion.button>

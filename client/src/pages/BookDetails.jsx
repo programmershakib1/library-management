@@ -182,7 +182,7 @@ const BookDetails = () => {
               {academicBook ? (
                 <div className="lg:w-1/2 mt-6 lg:mt-20 flex flex-col gap-5">
                   <a href={book?.source} target="_blank">
-                    <button className="w-full bg-primary dark:bg-c py-2 px-6 font-bold">
+                    <button className="w-full bg-black text-white dark:bg-c py-2 px-6 font-bold">
                       Reade
                     </button>
                   </a>
@@ -190,7 +190,7 @@ const BookDetails = () => {
                     to={`/updateBook/${book?._id}`}
                     state={{ academicBook: true }}
                   >
-                    <button className="w-full bg-primary dark:bg-c py-2 px-6 font-bold">
+                    <button className="w-full bg-black text-white dark:bg-c py-2 px-6 font-bold">
                       Update
                     </button>
                   </Link>
@@ -200,7 +200,7 @@ const BookDetails = () => {
                   onClick={() =>
                     document.getElementById("my_modal_5").showModal()
                   }
-                  className="bg-primary dark:bg-c py-2 px-6 font-bold mt-5"
+                  className="bg-black text-white dark:bg-c py-2 px-6 font-bold mt-5"
                 >
                   Borrow
                 </button>
