@@ -2,13 +2,16 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
-import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 const ForgetPassword = () => {
+  const [loading, setLoading] = useState(false);
   const { emailValue } = useAuth();
 
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
 
     const email = e.target.email.value;
@@ -18,48 +21,50 @@ const ForgetPassword = () => {
       toast.error("Please provide a valid mail");
     } else {
       sendPasswordResetEmail(auth, email).then(() => {
-        toast.success("Reset email sent, please check");
+        toast.success("Please check your email");
         window.location.href = "https://mail.google.com";
+        setLoading(false);
       });
     }
   };
 
   return (
-    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
+    <div className="min-h-screen flex flex-col items-center mt-10 md:mt-20">
       <Helmet>
-        <title>LMS - Forget Password</title>
+        <title>Forget Password - LMS</title>
       </Helmet>
-      <div className="md:w-2/4 lg:w-1/4 mx-auto">
-        <h2 className="text-center mb-5 font-black text-2xl font-row">
-          Forget Password
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="w-full flex flex-col">
-            <label>
-              <span className="font-semibold">Email</span>
-            </label>
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              defaultValue={`${emailValue ? emailValue : ""}`}
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <div className="flex justify-center">
-            <button className="w-1/2 bg-primary dark:bg-c mt-3 py-2 rounded-full font-bold">
-              Reset Password
-            </button>
-          </div>
-        </form>
-        <p className="mt-2 text-sm font-semibold text-center">
-          Back to
-          <Link to="/SignIn" className="pl-1 underline">
-            Sign In
-          </Link>
-        </p>
-      </div>
+      <form onSubmit={handleSubmit} action="" className="w-full">
+        <div className="flex flex-col w-4/5 md:w-1/2 lg:w-1/4 mx-auto">
+          <label>
+            <span className="font-semibold">Email</span>
+          </label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            defaultValue={`${emailValue ? emailValue : ""}`}
+            className="py-3 rounded-full shadow-md mt-1 pl-3 dark:bg-c"
+            required
+          />
+        </div>
+        <div className="flex justify-center">
+          <button className="bg-black py-1 px-6 text-white dark:bg-c rounded-full font-bold mt-3">
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <span className="loading loading-spinner text-white"></span>
+              </div>
+            ) : (
+              "Reset Password"
+            )}
+          </button>
+        </div>
+      </form>
+      <button className="mt-2 text-sm font-semibold">
+        Back to
+        <Link to="/SignIn" className="pl-1 underline">
+          Sign In
+        </Link>
+      </button>
     </div>
   );
 };

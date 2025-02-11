@@ -1,38 +1,38 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { deleteUser } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { formatDate } from "date-fns";
+import useAxiosPublic from "./../hooks/useAxiosPublic";
 
 const Profile = () => {
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const [bookData, setBookData] = useState([]);
   const [borrowedData, setBorrowedData] = useState([]);
   const [giftedData, setGiftedData] = useState([]);
 
   useEffect(() => {
-    axiosSecure.get("/all-books").then((res) => {
+    axiosPublic.get("/all-books").then((res) => {
       const myAddedBook = res.data.filter((d) => d.email === user.email);
       setBookData(myAddedBook);
     });
-    axiosSecure.get(`/borrow/${user.email}`).then((res) => {
+    axiosPublic.get(`/borrow/${user.email}`).then((res) => {
       setBorrowedData(res.data);
     });
 
-    axiosSecure.get(`/gifted-book/${user.email}`).then((res) => {
+    axiosPublic.get(`/gifted-book/${user.email}`).then((res) => {
       setGiftedData(res.data);
     });
-  }, [axiosSecure, user.email]);
+  }, [axiosPublic, user.email]);
 
   const handleUserDelete = () => {
     const user = auth.currentUser;
     const email = user?.email;
-    axiosSecure.delete(`/user/${email}`, deleteUser).then((res) => {
+    axiosPublic.delete(`/user/${email}`, deleteUser).then((res) => {
       if (res.data.deletedCount > 0) {
         toast.success("User delete successful in Database");
       }

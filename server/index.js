@@ -219,13 +219,8 @@ async function run() {
     });
 
     // borrows
-    app.get("/borrow/:email", verifyToken, async (req, res) => {
+    app.get("/borrow/:email", async (req, res) => {
       const email = req.params.email;
-
-      const decodedEmail = req.user?.email;
-      if (decodedEmail !== email) {
-        return res.status(401).send({ message: "unauthorized access" });
-      }
 
       const query = { email: email };
 
@@ -233,13 +228,8 @@ async function run() {
       res.send(result);
     });
 
-    app.get("/gifted-book/:email", verifyToken, async (req, res) => {
+    app.get("/gifted-book/:email", async (req, res) => {
       const email = req.params.email;
-
-      const decodedEmail = req.user?.email;
-      if (decodedEmail !== email) {
-        return res.status(401).send({ message: "unauthorized access" });
-      }
 
       const query = { sender_mail: email };
 

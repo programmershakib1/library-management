@@ -1,9 +1,8 @@
-import { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../hooks/useAuth";
+import { useRef, useState } from "react";
 
 const SignIn = () => {
   const {
@@ -15,29 +14,24 @@ const SignIn = () => {
     locations,
     setLocations,
   } = useAuth();
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const emailRef = useRef();
-  const axiosSecure = useAxiosSecure();
 
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
 
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
     handleSignIn(email, password)
       .then((result) => {
-        setUser(result?.user);
         e.target.reset();
-
-        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-        const loginInfo = { email, lastSignInTime };
-        toast.success("User sign In successful");
-
-        axiosSecure.patch("/user/login", loginInfo).then(() => {});
-
+        setUser(result?.user);
+        setLoading(false);
+        toast.success("User sign in successful");
         if (locations) {
           navigate(locations);
         } else {
@@ -45,6 +39,7 @@ const SignIn = () => {
         }
       })
       .catch((error) => {
+        setLoading(false);
         toast.error(error?.code);
       });
   };
@@ -64,72 +59,73 @@ const SignIn = () => {
   };
 
   return (
-    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
+    <div className="min-h-screen flex flex-col items-center mt-10 md:mt-20">
       <Helmet>
-        <title>LMS - Sign In</title>
+        <title>SignIn - LMS</title>
       </Helmet>
-      <div className="md:w-2/4 lg:w-1/4 mx-auto">
-        <h2 className="text-center mb-5 font-black text-2xl font-row">
-          Sign In
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="w-full flex flex-col">
-            <label>
-              <span className="font-semibold">Email</span>
-            </label>
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              ref={emailRef}
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <div className="w-full flex flex-col mt-3">
-            <label>
-              <span className="font-semibold">Password</span>
-            </label>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <Link to="/forgetPassword" onClick={handleEmail}>
-            <p className="text-xs font-semibold py-2 hover:underline text-center">
-              Forget password?
-            </p>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center w-full"
+      >
+        <div className="flex flex-col w-4/5 md:w-1/2 lg:w-1/4 mx-auto">
+          <label>
+            <span className="font-semibold">Email</span>
+          </label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            ref={emailRef}
+            className="py-3 rounded-full shadow-md mt-1 pl-3 dark:bg-c"
+            required
+          />
+        </div>
+        <div className="flex flex-col w-4/5 md:w-1/2 lg:w-1/4 mx-auto mt-2">
+          <label>
+            <span className="font-semibold">Password</span>
+          </label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="py-3 rounded-full shadow-md mt-1 pl-3 dark:bg-c"
+            required
+          />
+        </div>
+        <button>
+          <Link
+            onClick={handleEmail}
+            to="/forgetPassword"
+            className="text-xs py-2 hover:underline"
+          >
+            Forget password?
           </Link>
-          <div className="flex justify-center">
-            <button className="w-1/2 bg-primary dark:bg-c py-2 rounded-full font-bold">
-              Sign In
-            </button>
-          </div>
-        </form>
+        </button>
+        <button className="bg-black py-0.5 px-6 text-white dark:bg-c rounded-full font-bold">
+          {loading ? (
+            <div className="flex justify-center items-center">
+              <span className="loading loading-spinner text-white"></span>
+            </div>
+          ) : (
+            "Sign In"
+          )}
+        </button>
+      </form>
+      <div>
         <p className="pt-2 text-center text-sm font-semibold">
-          Don&apos;t have an Account?<span> </span>
+          Don&apos;t have an Account?
           <Link to="/signUp" onClick={handleLocations} className="underline">
+            {" "}
             Sign Up
           </Link>
         </p>
-        <div className="flex flex-col md:flex-row gap-5 mt-5">
+        <div className="flex flex-col md:flex-row gap-2">
           <button
             onClick={() => {
               handleGoogleLogin()
                 .then((result) => {
                   setUser(result.user);
-
-                  const email = result?.user?.email;
-                  const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-                  const loginInfo = { email, lastSignInTime };
-
-                  axiosSecure.patch("/user/login", loginInfo).then(() => {
-                    toast.success("User sign In successful");
-                  });
-
+                  toast.success("User sign in successful");
                   if (locations) {
                     navigate(locations);
                   } else {
@@ -140,24 +136,17 @@ const SignIn = () => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
+            className="bg-black py-2 px-6 text-white dark:bg-c rounded-full font-bold mt-5"
           >
-            <i className="fa-brands fa-google pr-2"></i>Google
+            <i className="fa-brands fa-google text-white pr-2"></i>
+            Google
           </button>
           <button
             onClick={() => {
               handleGithubLogin()
                 .then((result) => {
                   setUser(result.user);
-
-                  const email = result?.user?.email;
-                  const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-                  const loginInfo = { email, lastSignInTime };
-
-                  axiosSecure.patch("/user/login", loginInfo).then(() => {
-                    toast.success("User sign In successful");
-                  });
-
+                  toast.success("User sign in successful");
                   if (locations) {
                     navigate(locations);
                   } else {
@@ -168,9 +157,10 @@ const SignIn = () => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
+            className="bg-black py-2 px-6 text-white dark:bg-c rounded-full font-bold md:mt-5"
           >
-            <i className="fa-brands fa-github pr-2"></i>Github
+            <i className="fa-brands fa-github text-white pr-2"></i>
+            Github
           </button>
         </div>
       </div>

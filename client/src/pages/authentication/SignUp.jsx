@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { auth } from "../../firebase/firebase.config";
 import { updateProfile } from "firebase/auth";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
+import { imageUpload } from "../../utils/utils";
 
 const SignUp = () => {
   const {
@@ -15,47 +16,64 @@ const SignUp = () => {
     locations,
     setLocations,
   } = useAuth();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const axiosSecure = useAxiosSecure();
+  const [uploadImage, setUploadImage] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
-    const form = e.target;
-    const name = form.name.value;
-    const photo = form.photo.value;
-    const email = form.email.value;
-    const password = form.password.value;
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (!uploadImage || !uploadImage.image) {
+      setLoading(false);
+      toast.error("Please upload a profile photo.");
+      return;
+    }
 
     if (
       password.length < 6 ||
       !/[A-Z]/.test(password) ||
-      !/[a-z]/.test(password)
+      !/[a-z]/.test(password) ||
+      !/[!@#$%^&*(),.?":{}|<>]/.test(password)
     )
-      return toast.error(
-        password.length < 6
-          ? "Password must be 6 characters long"
-          : !/[A-Z]/.test(password)
-          ? "Password at least one uppercase letter"
-          : "Password at least one lowercase letter"
+      return (
+        setLoading(false),
+        toast.error(
+          password.length < 6
+            ? "Password must be 6 characters long"
+            : !/[A-Z]/.test(password)
+            ? "Password must contain at least one uppercase letter"
+            : !/[a-z]/.test(password)
+            ? "Password must contain at least one lowercase letter"
+            : "Password must contain at least one special character"
+        )
       );
+
+    const imageUrl = await imageUpload(uploadImage.image);
 
     handleSignUp(email, password)
       .then((result) => {
-        setUser(result?.user);
         e.target.reset();
+        setUser(result?.user);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: imageUrl,
+        });
 
-        const createdAt = result?.user?.metadata?.creationTime;
-        const newUser = { name, email, photo, createdAt };
+        setUser({ displayName: name, photoURL: imageUrl });
 
-        updateProfile(auth.currentUser, { displayName: name, photoURL: photo });
-        setUser({ displayName: name, photoURL: photo });
-        toast.success("User sign Up successful");
-
-        axiosSecure.post("/user", newUser).then(() => {});
+        setLoading(false);
+        toast.success("User sign up successful");
         navigate(locations ? locations : "/");
       })
       .catch((error) => {
+        e.target.reset();
+        setUploadImage(null);
+        setLoading(false);
         toast.error(error?.code);
       });
   };
@@ -65,129 +83,132 @@ const SignUp = () => {
   };
 
   return (
-    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
+    <div className="min-h-screen flex flex-col items-center mt-10">
       <Helmet>
-        <title>LMS - Sign Up</title>
+        <title>SignUp - LMS</title>
       </Helmet>
-      <div className="md:w-2/4 lg:w-1/4 mx-auto">
-        <h2 className="text-center mb-5 font-black text-2xl font-row">
-          Sign Up
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="w-full flex flex-col">
-            <label>
-              <span className="font-semibold">Name</span>
-            </label>
-            <input
-              name="name"
-              type="text"
-              placeholder="Name"
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <div className="w-full flex flex-col mt-3">
-            <label>
-              <span className="font-semibold">Photo URL</span>
-            </label>
-            <input
-              name="photo"
-              type="text"
-              placeholder="Photo url"
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <div className="w-full flex flex-col mt-3">
-            <label>
-              <span className="font-semibold">Email</span>
-            </label>
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <div className="w-full flex flex-col mt-3">
-            <label>
-              <span className="font-semibold">Password</span>
-            </label>
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              className="mt-1 p-3 rounded-full border border-black dark:bg-c"
-              required
-            />
-          </div>
-          <div className="flex justify-center">
-            <button className="w-1/2 bg-primary dark:bg-c mt-5 py-2 rounded-full font-bold">
-              Sign Up
-            </button>
-          </div>
-        </form>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center w-full"
+      >
+        <div className="relative w-36 h-36 border-2 border-black dark:border-white rounded-full flex justify-center items-center">
+          <label
+            htmlFor="profilePhoto"
+            className="w-full h-full flex items-center justify-center rounded-full cursor-pointer"
+          >
+            {uploadImage ? (
+              <img
+                className="w-full h-full rounded-full object-cover"
+                src={uploadImage?.url}
+                alt="Uploaded profile"
+              />
+            ) : (
+              <h4 className="text-xl font-semibold">Profile</h4>
+            )}
+          </label>
+          <input
+            id="profilePhoto"
+            type="file"
+            name="image"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) =>
+              setUploadImage({
+                image: e.target.files[0],
+                url: URL.createObjectURL(e.target.files[0]),
+              })
+            }
+          />
+        </div>
+        <div className="flex flex-col w-4/5 md:w-1/2 lg:w-1/4 mx-auto">
+          <label>
+            <span className="font-semibold">Name</span>
+          </label>
+          <input
+            name="name"
+            type="text"
+            placeholder="Name"
+            className="py-3 rounded-full shadow-md mt-1 pl-3 dark:bg-c"
+            required
+          />
+        </div>
+        <div className="flex flex-col w-4/5 md:w-1/2 lg:w-1/4 mx-auto mt-2">
+          <label>
+            <span className="font-semibold">Email</span>
+          </label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            className="py-3 rounded-full shadow-md mt-1 pl-3 dark:bg-c"
+            required
+          />
+        </div>
+        <div className="flex flex-col w-4/5 md:w-1/2 lg:w-1/4 mx-auto mt-2">
+          <label>
+            <span className="font-semibold">Password</span>
+          </label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="py-3 rounded-full shadow-md mt-1 pl-3 dark:bg-c"
+            required
+          />
+        </div>
+        <button className="bg-black py-0.5 px-6 text-white dark:bg-c  rounded-full font-bold mt-5">
+          {loading ? (
+            <div className="flex justify-center items-center">
+              <span className="loading loading-spinner text-white"></span>
+            </div>
+          ) : (
+            "Sign Up"
+          )}
+        </button>
+      </form>
+      <div>
         <p className="pt-2 text-center text-sm font-semibold">
-          Already have an Account?<span> </span>
+          Already have an Account?
           <Link to="/signIn" onClick={handleLocations} className="underline">
+            {" "}
             Sign In
           </Link>
         </p>
-        <div className="flex flex-col md:flex-row gap-5 mt-5">
+        <div className="flex flex-col md:flex-row gap-2">
           <button
             onClick={() => {
               handleGoogleLogin()
                 .then((result) => {
                   setUser(result?.user);
-
-                  const name = result?.user?.displayName;
-                  const email = result?.user?.email;
-                  const photo = result?.user?.photoURL;
-                  const createdAt = result?.user?.metadata?.creationTime;
-                  const userInfo = { name, email, photo, createdAt };
-
-                  axiosSecure.post("/user", userInfo).then((res) => {
-                    if (res.data.insertedId) {
-                      toast.success("User sign Up successful");
-                    }
-                  });
+                  toast.success("User sign up successful");
                   navigate(locations ? locations : "/");
                 })
                 .catch((error) => {
+                  setLoading(false);
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
+            className="bg-black py-2 px-6 text-white dark:bg-c rounded-full font-bold mt-5"
           >
-            <i className="fa-brands fa-google pr-2"></i>Google
+            <i className="fa-brands fa-google text-white pr-2"></i>
+            Google
           </button>
           <button
             onClick={() => {
               handleGithubLogin()
                 .then((result) => {
                   setUser(result?.user);
-
-                  const name = result?.user?.displayName;
-                  const email = result?.user?.email;
-                  const photo = result?.user?.photoURL;
-                  const createdAt = result?.user?.metadata?.creationTime;
-                  const userInfo = { name, email, photo, createdAt };
-
-                  axiosSecure.post("/user", userInfo).then((res) => {
-                    if (res.data.insertedId) {
-                      toast.success("User sign Up successful");
-                    }
-                  });
+                  toast.success("User sign up successful");
                   navigate(locations ? locations : "/");
                 })
                 .catch((error) => {
                   toast.error(error?.code);
                 });
             }}
-            className="w-full bg-primary dark:bg-c py-2 rounded-full font-bold"
+            className="bg-black py-2 px-6 text-white dark:bg-c rounded-full font-bold md:mt-5"
           >
-            <i className="fa-brands fa-github pr-2"></i>Github
+            <i className="fa-brands fa-github text-white pr-2"></i>
+            Github
           </button>
         </div>
       </div>
