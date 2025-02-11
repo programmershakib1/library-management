@@ -16,7 +16,7 @@ LMS is built with a **modern, responsive, and mobile-friendly interface**, makin
 
 ---
 
-## [🚀 Visit The Site](https://library-management-system-lms1.netlify.app)
+## [🚀 Visit The Site](https://lms0.netlify.app)
 
 ---
 
