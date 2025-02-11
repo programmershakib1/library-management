@@ -25,7 +25,7 @@ const BookTable = ({ books }) => {
         <tbody className="divide-y divide-gray-200 ">
           {books.map((book, idx) => (
             <motion.tr {...animationValue} key={idx}>
-              <td className="whitespace-nowrap py-5 md:pl-5 lg:pl-10">
+              <td className="whitespace-nowrap py-5 pl-2 md:pl-5 lg:pl-10">
                 <Zoom>
                   <img
                     className="w-14 h-14 rounded-full"

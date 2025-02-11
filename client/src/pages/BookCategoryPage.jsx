@@ -35,13 +35,13 @@ const BookCategoryPage = () => {
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
           <Helmet>
-            <title>{`LMS - Category ${
-              pathname === "/category/Novel" ? "Novel" : ""
-            } ${pathname === "/category/Thriller" ? "Thriller" : ""}  ${
-              pathname === "/category/History" ? "History" : ""
-            }  ${pathname === "/category/Drama" ? "Drama" : ""}  ${
+            <title>{`${pathname === "/category/Novel" ? "Novel" : ""} ${
+              pathname === "/category/Thriller" ? "Thriller" : ""
+            }  ${pathname === "/category/History" ? "History" : ""}  ${
+              pathname === "/category/Drama" ? "Drama" : ""
+            }  ${
               pathname === "/category/Sci-Fi" ? "Sci-Fi" : ""
-            }`}</title>
+            } Category - LMS`}</title>
           </Helmet>
           {books.map((book, idx) => (
             <BookCard key={idx} book={book}></BookCard>

@@ -29,7 +29,7 @@ const PopularBooks = () => {
     >
       <Helmet>
         <title>
-          {pathname === "/popularBooks" ? "LMS - Popular Books" : ""}
+          {pathname === "/popularBooks" ? "Popular Books - LMS" : ""}
         </title>
       </Helmet>
       <div className={pathname === "/popularBooks" ? "hidden" : ""}>

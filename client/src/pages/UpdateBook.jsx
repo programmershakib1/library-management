@@ -117,7 +117,7 @@ const UpdateBook = () => {
   return (
     <div className="mx-5 md:mx-0 min-h-96">
       <Helmet>
-        <title>LMS - Update Book</title>
+        <title>Update Book - LMS</title>
       </Helmet>
       {loading ? (
         <div className="text-center mt-10 dark:mt-20">
@@ -186,7 +186,7 @@ const UpdateBook = () => {
               <input
                 name="image"
                 type="url"
-                placeholder="Image"
+                placeholder="Book Image URL"
                 defaultValue={image}
                 className="border border-black dark:bg-c mt-2 p-3 rounded-full"
                 {...register("image", { required: "Image URL is required" })}

@@ -57,9 +57,9 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
+    <div className="mt-5 md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
-        <title>LMS - Update Profile</title>
+        <title>Update Profile - LMS</title>
       </Helmet>
       <form
         onSubmit={handleSubmit}

@@ -87,7 +87,7 @@ const GiftBookPage = () => {
   return (
     <div className="mx-5 md:mx-5 min-h-96">
       <Helmet>
-        <title>LMS - Gift Book</title>
+        <title>Gift Book - LMS</title>
       </Helmet>
       {loading ? (
         <div className="text-center mt-10 dark:mt-20">
@@ -103,7 +103,7 @@ const GiftBookPage = () => {
                 className="dark:bg-c rounded-xl p-5 hover:shadow-2xl shadow-md"
               >
                 <img
-                  className="w-full h-40 rounded-xl"
+                  className="w-full h-48 md:h-32 lg:h-40 rounded-xl"
                   src={book?.image}
                   alt=""
                 />

@@ -4,11 +4,21 @@ import BookTable from "../components/BookTable";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
+const categories = ["All", "Novel", "Thriller", "History", "Drama", "Sci-Fi"];
+const sortOptions = [
+  { value: "default", label: "Default Order" },
+  { value: "highest", label: "Highest Quantity First" },
+  { value: "lowest", label: "Lowest Quantity First" },
+];
+
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
+  const [originalBooks, setOriginalBooks] = useState([]);
   const [showAvailable, setShowAvailable] = useState(false);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("card");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortOrder, setSortOrder] = useState("default");
 
   useEffect(() => {
     axios
@@ -19,6 +29,7 @@ const AllBooks = () => {
       )
       .then((res) => {
         setBooks(res.data);
+        setOriginalBooks(res.data);
         setLoading(false);
       });
   }, [showAvailable]);
@@ -32,10 +43,33 @@ const AllBooks = () => {
     setViewMode(mode);
   };
 
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+  };
+
+  let filteredBooks =
+    selectedCategory === "All"
+      ? books
+      : books.filter((book) => book.category === selectedCategory);
+
+  if (sortOrder === "highest") {
+    filteredBooks = [...filteredBooks].sort((a, b) => b.quantity - a.quantity);
+  } else if (sortOrder === "lowest") {
+    filteredBooks = [...filteredBooks].sort((a, b) => a.quantity - b.quantity);
+  } else {
+    filteredBooks = [...originalBooks].filter((book) =>
+      selectedCategory === "All" ? true : book.category === selectedCategory
+    );
+  }
+
   return (
     <div className="mx-5 md:mx-0 min-h-96">
       <Helmet>
-        <title>LMS - All Books</title>
+        <title>All Books - LMS</title>
       </Helmet>
       {loading ? (
         <div className="text-center mt-10 dark:mt-20">
@@ -69,6 +103,32 @@ const AllBooks = () => {
             <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
               <select
                 className="w-full dark:bg-c"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+              >
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
+              <select
+                className="w-full dark:bg-c"
+                value={sortOrder}
+                onChange={handleSortChange}
+              >
+                {sortOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
+              <select
+                className="w-full dark:bg-c"
                 value={viewMode}
                 onChange={(e) => handleViewToggle(e.target.value)}
               >
@@ -80,18 +140,18 @@ const AllBooks = () => {
               onClick={handleFilter}
               className="w-full lg:w-1/5 text-left dark:bg-c border border-black rounded-md py-2 px-4 font-bold"
             >
-              {showAvailable ? "Show All Books" : "Show Available Books"}
+              {showAvailable ? "Show All" : "Show Available"}
             </button>
           </div>
           {viewMode === "card" ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-              {books.map((book, idx) => (
+              {filteredBooks.map((book, idx) => (
                 <BookCard key={idx} book={book}></BookCard>
               ))}
             </div>
           ) : (
             <div className="mt-5">
-              <BookTable books={books}></BookTable>
+              <BookTable books={filteredBooks}></BookTable>
             </div>
           )}
         </div>

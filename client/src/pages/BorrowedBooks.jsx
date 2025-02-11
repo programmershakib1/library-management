@@ -51,7 +51,7 @@ const BorrowedBooks = () => {
   return (
     <div className="mx-5 md:mx-0 min-h-screen">
       <Helmet>
-        <title>LMS - Borrowed Books</title>
+        <title>Borrowed Books - LMS</title>
       </Helmet>
       {!borrows.length && !loading ? (
         <div className="text-center mt-9 dark:mt-10 md:dark:mt-24">

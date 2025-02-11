@@ -51,7 +51,7 @@ const Profile = () => {
   return (
     <div className="mx-5 md:mx-0 md:mt-9 dark:mt-10 md:dark:mt-24">
       <Helmet>
-        <title>LMS - Profile</title>
+        <title>Profile - LMS</title>
       </Helmet>
       <div className="flex flex-col justify-center items-center text-center">
         <h2 className="text-2xl font-bold font-row">

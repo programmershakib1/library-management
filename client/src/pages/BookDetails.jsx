@@ -116,7 +116,7 @@ const BookDetails = () => {
   return (
     <div className="mt-5 md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0 min-h-96">
       <Helmet>
-        <title>LMS - Book Details</title>
+        <title>Book Details - LMS</title>
       </Helmet>
       {loading ? (
         <div className="text-center mt-10 dark:mt-20">
@@ -183,7 +183,7 @@ const BookDetails = () => {
                 <div className="lg:w-1/2 mt-6 lg:mt-20 flex flex-col gap-5">
                   <a href={book?.source} target="_blank">
                     <button className="w-full bg-black text-white dark:bg-c py-2 px-6 font-bold">
-                      Reade
+                      Read
                     </button>
                   </a>
                   <Link

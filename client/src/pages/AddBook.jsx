@@ -69,7 +69,7 @@ const AddBook = () => {
   return (
     <div className="md:mt-9 dark:mt-10 md:dark:mt-24 mx-5 md:mx-0">
       <Helmet>
-        <title>LMS - Add Book</title>
+        <title>Add Book - LMS</title>
       </Helmet>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
         <div className="flex flex-col md:flex-row justify-between gap-5">
@@ -109,7 +109,7 @@ const AddBook = () => {
             </label>
             <input
               type="url"
-              placeholder="Image"
+              placeholder="Book Image URL" 
               className="border border-black dark:bg-c mt-2 p-3 rounded-full"
               {...register("image", { required: "Image URL is required" })}
             />
@@ -190,7 +190,7 @@ const AddBook = () => {
           </label>
           <textarea
             placeholder="Short Description"
-            className="border border-black dark:bg-c mt-2 h-20 p-3"
+            className="border border-black dark:bg-c mt-2 h-20 p-3 rounded-md"
             {...register("description", {
               required: "Description is required",
             })}
@@ -205,7 +205,7 @@ const AddBook = () => {
           </label>
           <textarea
             placeholder="Book Content"
-            className="border border-black dark:bg-c mt-2 h-40 p-3"
+            className="border border-black dark:bg-c mt-2 h-40 p-3 rounded-md"
             {...register("book_content", {
               required: "Book content is required",
             })}
