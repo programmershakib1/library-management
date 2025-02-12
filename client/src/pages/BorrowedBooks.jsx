@@ -61,7 +61,7 @@ const BorrowedBooks = () => {
               borrow books.
             </h2>
             <Link to="/allBooks">
-              <button className="bg-primary py-2 px-4 font-bold rounded-sm">
+              <button className="bg-black text-white py-2 px-4 font-bold rounded-sm">
                 All Books
               </button>
             </Link>

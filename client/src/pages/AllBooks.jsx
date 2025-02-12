@@ -13,34 +13,28 @@ const sortOptions = [
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
-  const [originalBooks, setOriginalBooks] = useState([]);
-  const [showAvailable, setShowAvailable] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showAvailable, setShowAvailable] = useState(false);
   const [viewMode, setViewMode] = useState("card");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("default");
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
         `${
           import.meta.env.VITE_SERVER_URL
-        }/all-books?showAvailable=${showAvailable}`
+        }/all-books?showAvailable=${showAvailable}&sortOrder=${sortOrder}&category=${selectedCategory}`
       )
       .then((res) => {
         setBooks(res.data);
-        setOriginalBooks(res.data);
         setLoading(false);
       });
-  }, [showAvailable]);
+  }, [showAvailable, sortOrder, selectedCategory]);
 
   const handleFilter = () => {
-    setLoading(true);
     setShowAvailable(!showAvailable);
-  };
-
-  const handleViewToggle = (mode) => {
-    setViewMode(mode);
   };
 
   const handleCategoryChange = (e) => {
@@ -51,20 +45,9 @@ const AllBooks = () => {
     setSortOrder(e.target.value);
   };
 
-  let filteredBooks =
-    selectedCategory === "All"
-      ? books
-      : books.filter((book) => book.category === selectedCategory);
-
-  if (sortOrder === "highest") {
-    filteredBooks = [...filteredBooks].sort((a, b) => b.quantity - a.quantity);
-  } else if (sortOrder === "lowest") {
-    filteredBooks = [...filteredBooks].sort((a, b) => a.quantity - b.quantity);
-  } else {
-    filteredBooks = [...originalBooks].filter((book) =>
-      selectedCategory === "All" ? true : book.category === selectedCategory
-    );
-  }
+  const handleViewToggle = (mode) => {
+    setViewMode(mode);
+  };
 
   return (
     <div className="mx-5 md:mx-0 min-h-96">
@@ -145,13 +128,13 @@ const AllBooks = () => {
           </div>
           {viewMode === "card" ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-              {filteredBooks.map((book, idx) => (
+              {books.map((book, idx) => (
                 <BookCard key={idx} book={book}></BookCard>
               ))}
             </div>
           ) : (
             <div className="mt-5">
-              <BookTable books={filteredBooks}></BookTable>
+              <BookTable books={books}></BookTable>
             </div>
           )}
         </div>

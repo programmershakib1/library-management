@@ -26,8 +26,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-0 flex justify-between items-center bg-white text-black dark:rounded-full py-5 md:py-10 dark:py-5 sticky top-0 dark:top-5 md:dark:top-10 z-50 ">
-      <div className="dark:pl-5">
+    <div className="mx-5 md:mx-0 flex justify-between items-center bg-white dark:bg-gray-300 text-black dark:rounded-full py-5 md:py-10 dark:py-4 md:dark:py-5 sticky top-0 dark:top-5 md:dark:top-10 z-50 ">
+      <div className="dark:pl-6">
         <Link to="/" className="flex items-center gap-2">
           <img className="w-12 h-12" src={logo} alt="Logo" />
           <h2 className="hidden md:block font-black text-3xl font-sora">LMS</h2>
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleSingOut}
-              className="hidden md:block bg-black text-white font-bold dark:lg:mr-5 py-3 px-8 rounded-full"
+              className="hidden md:block bg-black text-white font-bold dark:lg:mr-6 py-3 px-8 rounded-full"
             >
               Sign Out
             </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div>
-            <button className="hidden md:block bg-black text-white font-bold dark:lg:mr-5 py-3 px-8 rounded-full">
+            <button className="hidden md:block bg-black text-white font-bold dark:lg:mr-6 py-3 px-8 rounded-full">
               <Link to="/signIn">Sign In</Link>
             </button>
             <button className="block md:hidden">

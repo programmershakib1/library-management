@@ -92,18 +92,28 @@ async function run() {
         .send({ success: true });
     });
 
-    // books
     app.get("/all-books", async (req, res) => {
-      const { showAvailable } = req.query;
+      const { showAvailable, sortOrder, category } = req.query;
 
       let filter = {};
+
+      if (category && category !== "All") {
+        filter.category = category;
+      }
 
       if (showAvailable === "true") {
         filter.quantity = { $gt: 0 };
       }
 
-      const result = await bookCollection.find(filter).toArray();
-      res.send(result);
+      let books = await bookCollection.find(filter).toArray();
+
+      if (sortOrder === "highest") {
+        books.sort((a, b) => b.quantity - a.quantity);
+      } else if (sortOrder === "lowest") {
+        books.sort((a, b) => a.quantity - b.quantity);
+      }
+
+      res.send(books);
     });
 
     app.get("/gift-books", async (req, res) => {
