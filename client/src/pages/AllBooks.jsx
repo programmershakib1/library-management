@@ -7,8 +7,8 @@ import axios from "axios";
 const categories = ["All", "Novel", "Thriller", "History", "Drama", "Sci-Fi"];
 const sortOptions = [
   { value: "default", label: "Default Order" },
-  { value: "highest", label: "Highest Quantity First" },
-  { value: "lowest", label: "Lowest Quantity First" },
+  { value: "highest", label: "Highest Quantity" },
+  { value: "lowest", label: "Lowest Quantity" },
 ];
 
 const AllBooks = () => {
@@ -83,9 +83,9 @@ const AllBooks = () => {
             </button>
           </div>
           <div className="flex flex-col md:flex-row gap-5 items-center justify-center m-5">
-            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
+            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2">
               <select
-                className="w-full dark:bg-c"
+                className="w-full dark:bg-c px-2"
                 value={selectedCategory}
                 onChange={handleCategoryChange}
               >
@@ -96,9 +96,9 @@ const AllBooks = () => {
                 ))}
               </select>
             </div>
-            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
+            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2">
               <select
-                className="w-full dark:bg-c"
+                className="w-full dark:bg-c px-2"
                 value={sortOrder}
                 onChange={handleSortChange}
               >
@@ -109,19 +109,19 @@ const AllBooks = () => {
                 ))}
               </select>
             </div>
-            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2 px-2">
+            <div className="w-full lg:w-1/5 dark:bg-c border border-black rounded-md font-bold py-2">
               <select
-                className="w-full dark:bg-c"
+                className="w-full dark:bg-c px-2"
                 value={viewMode}
                 onChange={(e) => handleViewToggle(e.target.value)}
               >
-                <option value="card">View Mode: Card</option>
-                <option value="table">View Mode: Table</option>
+                <option value="card">View Mode : Card</option>
+                <option value="table">View Mode : Table</option>
               </select>
             </div>
             <button
               onClick={handleFilter}
-              className="w-full lg:w-1/5 text-left dark:bg-c border border-black rounded-md py-2 px-4 font-bold"
+              className="w-full lg:w-1/5 text-left dark:bg-c border border-black rounded-md py-2 px-3 font-bold"
             >
               {showAvailable ? "Show All" : "Show Available"}
             </button>

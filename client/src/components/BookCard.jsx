@@ -50,13 +50,13 @@ const BookCard = ({ book }) => {
           ></ReactStars>
           {pathname === "/allBooks" ? (
             <Link to={`/updateBook/${_id}`} state={{ academicBook: false }}>
-              <button className="border border-black px-5 py-0.5 font-bold rounded-sm">
+              <button className="border border-black px-5 py-0.5 font-bold rounded-md">
                 Update
               </button>
             </Link>
           ) : (
             <Link to={`/bookDetails/${_id}`} state={{ academicBook: false }}>
-              <button className="border border-black px-5 py-0.5 font-bold rounded-sm">
+              <button className="border border-black px-5 py-0.5 font-bold rounded-md">
                 Details
               </button>
             </Link>

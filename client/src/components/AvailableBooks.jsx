@@ -48,7 +48,7 @@ const AvailableBooks = () => {
             >
               <motion.div
                 {...animationValue}
-                className="h-40 flex flex-col justify-center items-center p-10 dark:bg- rounded-full shadow-md"
+                className="h-40 flex flex-col justify-center items-center p-10 dark:bg- rounded-full shadow-md hover:shadow-2xl dark:bg-c"
               >
                 <h2 className="font-black font-row text-lg mb-2">
                   {category.name}
